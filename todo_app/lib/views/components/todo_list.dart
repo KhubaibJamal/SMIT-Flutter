@@ -24,7 +24,7 @@ class TodoList extends StatelessWidget {
       height: height * 0.17,
       width: width,
       decoration: BoxDecoration(
-        color: const Color(0xffA2678A),
+        color: const Color(0xFF5C5470),
         borderRadius: BorderRadius.circular(20),
       ),
       child: Column(

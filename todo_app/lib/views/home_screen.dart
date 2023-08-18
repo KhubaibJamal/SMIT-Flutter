@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/views/components/bottom_container.dart';
 import 'package:todo_app/views/components/todo_list.dart';
 import 'package:todo_app/wdgets/default_text_widget.dart';
 import 'package:todo_app/wdgets/text_field_widget.dart';
@@ -62,6 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
               onPressed: () {
                 setState(() {
                   todoList[index] = updateTodoController.text;
+                  updateTodoController.clear();
                 });
                 Navigator.of(context).pop();
               },
@@ -85,6 +87,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
+          backgroundColor: Color(0xFF352F44),
           centerTitle: true,
           title: const DefaultTextWidget(
             text: "Todo",
@@ -114,28 +117,11 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             Expanded(
-              child: Container(
-                margin: const EdgeInsets.all(12),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: TextFieldWidget(
-                        todoController: todoController,
-                        hintText: "Enter Todo Here",
-                      ),
-                    ),
-                    IconButton(
-                      onPressed: () {
-                        saveToList();
-                      },
-                      icon: const Icon(
-                        Icons.send,
-                        color: Color(0xff3F1D38),
-                        size: 30,
-                      ),
-                    ),
-                  ],
-                ),
+              child: BottomContainer(
+                todoController: todoController,
+                saveFunction: () {
+                  saveToList();
+                },
               ),
             ),
           ],
