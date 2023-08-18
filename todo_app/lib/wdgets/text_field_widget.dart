@@ -9,6 +9,10 @@ class TextFieldWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      style: const TextStyle(
+        fontSize: 22,
+        color: Colors.black,
+      ),
       controller: todoController,
       decoration: InputDecoration(
         hintText: hintText,
