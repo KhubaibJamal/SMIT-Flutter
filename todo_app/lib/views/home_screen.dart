@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/views/components/bottom_container.dart';
 import 'package:todo_app/views/components/todo_list.dart';
-import 'package:todo_app/wdgets/default_text_widget.dart';
-import 'package:todo_app/wdgets/text_field_widget.dart';
+import 'package:todo_app/widgets/default_text_widget.dart';
+import 'package:todo_app/widgets/text_field_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -40,6 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   // update in the list
   Future<void> updateTodo(int index) async {
+    updateTodoController.text = todoList[index];
     return showDialog<void>(
       context: context,
       barrierDismissible: false, // user must tap button!
@@ -87,7 +88,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: Color(0xFF352F44),
+          backgroundColor: const Color(0xFF352F44),
           centerTitle: true,
           title: const DefaultTextWidget(
             text: "Todo",

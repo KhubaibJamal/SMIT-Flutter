@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app/wdgets/default_text_widget.dart';
+import 'package:todo_app/widgets/default_text_widget.dart';
 
 class TodoList extends StatelessWidget {
   final double height;

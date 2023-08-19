@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app/wdgets/text_field_widget.dart';
+import 'package:todo_app/widgets/text_field_widget.dart';
 
 class BottomContainer extends StatelessWidget {
   final TextEditingController todoController;
