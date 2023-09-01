@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:todo_app/provider/todo_provider.dart';
 import 'package:todo_app/views/components/bottom_container.dart';
 import 'package:todo_app/views/components/todo_list.dart';
 import 'package:todo_app/widgets/default_text_widget.dart';
@@ -14,33 +16,32 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   TextEditingController todoController = TextEditingController();
   TextEditingController updateTodoController = TextEditingController();
-  List todoList = [
-    "do flutter practice ",
-    "bye laptop",
-    "Fluttering",
-    "Meeting at 8 pm",
-  ];
+
+  @override
+  void dispose() {
+    todoController.dispose();
+    updateTodoController.dispose();
+    super.dispose();
+  }
 
   // method for add items to the list
   void saveToList() {
-    setState(() {
-      todoList.add(todoController.text);
-      todoController.clear();
-      // dismiss on screen keyboard
-      FocusManager.instance.primaryFocus?.unfocus();
-    });
+    Provider.of<TodoProvider>(context, listen: false)
+        .addTodo(todoController.text);
+    todoController.clear();
+    // dismiss on screen keyboard
+    FocusManager.instance.primaryFocus?.unfocus();
   }
 
   // method to delete items from the list
-  void deleteFromList(int index) {
-    setState(() {
-      todoList.removeAt(index);
-    });
-  }
+  // void deleteFromList(int index) {
+  //   Provider.of<TodoProvider>(context, listen: false).deleteTodoItem(index);
+  // }
 
   // update in the list
   Future<void> updateTodo(int index) async {
-    updateTodoController.text = todoList[index];
+    updateTodoController.text =
+        Provider.of<TodoProvider>(context, listen: false).todoList[index];
     return showDialog<void>(
       context: context,
       barrierDismissible: false, // user must tap button!
@@ -62,10 +63,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 fontSize: 18,
               ),
               onPressed: () {
-                setState(() {
-                  todoList[index] = updateTodoController.text;
-                  updateTodoController.clear();
-                });
+                Provider.of<TodoProvider>(context, listen: false)
+                    .updateTodoItem(index, updateTodoController.text);
+                updateTodoController.clear();
                 Navigator.of(context).pop();
               },
             ),
@@ -83,6 +83,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    print("Build");
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return SafeArea(
@@ -100,30 +101,34 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             Expanded(
               flex: 5,
-              child: ListView.builder(
-                physics: const BouncingScrollPhysics(),
-                itemCount: todoList.length,
-                itemBuilder: (context, index) {
-                  return TodoList(
-                      height: height,
-                      width: width,
-                      text: "${todoList[index]}",
-                      deleteFunction: () {
-                        deleteFromList(index);
-                      },
-                      editFunction: () {
-                        updateTodo(index);
-                      });
+              child: Consumer<TodoProvider>(
+                builder: (context, todoProvider, child) {
+                  return ListView.builder(
+                    shrinkWrap: true,
+                    physics: const BouncingScrollPhysics(),
+                    itemCount: todoProvider.todoList.length,
+                    itemBuilder: (context, index) {
+                      return TodoList(
+                          height: height,
+                          width: width,
+                          text: todoProvider.todoList[index],
+                          deleteFunction: () {
+                            Provider.of<TodoProvider>(context, listen: false)
+                                .deleteTodoItem(index);
+                          },
+                          editFunction: () {
+                            updateTodo(index);
+                          });
+                    },
+                  );
                 },
               ),
             ),
-            Expanded(
-              child: BottomContainer(
-                todoController: todoController,
-                saveFunction: () {
-                  saveToList();
-                },
-              ),
+            BottomContainer(
+              todoController: todoController,
+              saveFunction: () {
+                saveToList();
+              },
             ),
           ],
         ),

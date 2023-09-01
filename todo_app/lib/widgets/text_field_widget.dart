@@ -10,7 +10,7 @@ class TextFieldWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
       style: const TextStyle(
-        fontSize: 22,
+        fontSize: 18,
         color: Colors.black,
       ),
       controller: todoController,

@@ -33,7 +33,7 @@ class TodoList extends StatelessWidget {
         children: [
           DefaultTextWidget(
             text: text,
-            fontSize: 28,
+            fontSize: 24,
             textColor: Colors.white,
           ),
           Row(
@@ -43,7 +43,7 @@ class TodoList extends StatelessWidget {
                 onPressed: deleteFunction,
                 icon: const Icon(
                   Icons.delete,
-                  size: 30,
+                  size: 25,
                   color: Colors.red,
                 ),
               ),
@@ -52,7 +52,7 @@ class TodoList extends StatelessWidget {
                 onPressed: editFunction,
                 icon: const Icon(
                   Icons.edit,
-                  size: 30,
+                  size: 25,
                   color: Colors.white,
                 ),
               ),
