@@ -1,8 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:mini_project/size_config.dart';
 
-class AppColor {
-  static const Color kTextColor = Color(0xFF2A4BA0);
-  static const Color kSearchColor = Color(0xFF153075);
-  static const Color kSecondaryColor = Color(0xFFF9B023);
-  static const Color kSecondaryLightColor = Color(0xFFFFC83A);
-}
+import 'colors.dart';
+
+const kAnimationDuration = Duration(milliseconds: 200);
+
+final headingStyle = TextStyle(
+  color: AppColor.kTextColor,
+  fontSize: getProportionateScreenWidth(30),
+  fontFamily: "Manrope",
+  fontWeight: FontWeight.bold,
+);
+
+final subHeadingStyle = TextStyle(
+  color: AppColor.kTextLightColor,
+  fontSize: getProportionateScreenWidth(18),
+);
