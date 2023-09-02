@@ -4,6 +4,7 @@ import 'package:mini_project/screen/splash/component/splash_content.dart';
 import 'package:mini_project/size_config.dart';
 
 import '../../../constant.dart';
+import '../../home/home_screen.dart';
 
 class Body extends StatefulWidget {
   const Body({super.key});
@@ -83,7 +84,10 @@ class _BodyState extends State<Body> {
                         foregroundColor: Colors.white,
                         backgroundColor: AppColor.kTextColor,
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushReplacementNamed(
+                            context, HomeScreen.routeName);
+                      },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [

@@ -16,3 +16,14 @@ final subHeadingStyle = TextStyle(
   color: AppColor.kTextLightColor,
   fontSize: getProportionateScreenWidth(18),
 );
+
+final homeDeliveryTextStyle = TextStyle(
+  color: AppColor.kGreyColor,
+  fontSize: getProportionateScreenWidth(17),
+  fontWeight: FontWeight.w500,
+);
+
+final homeDeliveryLightTextStyle = TextStyle(
+  color: AppColor.kGreyLightColor,
+  fontSize: getProportionateScreenWidth(15),
+);

@@ -9,6 +9,8 @@ class AppColor {
   static const Color kTextDarkColor = Color(0xFF1E222B);
   static const Color kTextLightColor = Color(0xFFB2BBCE);
   static const Color kGreyColor = Color(0xFFF8F9FB);
-  static const Color kGreyLightColor = Color(0xFFF8F9FB);
+  static const Color kGreyLightColor = Color(0xFF8891A5);
   static const Color kIconColor = Color(0xFF3E4554);
+  static const Color kCartColor = Color(0xFFE0E2EE);
+  static const Color kCartSubTextColor = Color(0xFF616A7D);
 }
