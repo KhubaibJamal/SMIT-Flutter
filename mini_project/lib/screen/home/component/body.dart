@@ -4,9 +4,7 @@ import 'package:mini_project/screen/home/component/popular_products.dart';
 import 'package:mini_project/screen/home/component/saving_cart.dart';
 import 'package:mini_project/screen/home/component/search_bar.dart';
 import 'package:mini_project/size_config.dart';
-
-import '../../../component/cart_icon_button.dart';
-import '../../../component/header_text.dart';
+import 'deal_on_product.dart';
 import 'delivery_text.dart';
 import 'home_banner.dart';
 
@@ -15,80 +13,69 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Column(
-        children: [
-          Container(
-            padding: EdgeInsets.symmetric(
-              horizontal: getProportionateScreenWidth(20),
-              vertical: getProportionateScreenWidth(30),
-            ),
-            color: AppColor.kPrimaryColor,
+    return ListView(
+      children: [
+        Container(
+          padding: EdgeInsets.symmetric(
+            horizontal: getProportionateScreenWidth(20),
+            vertical: getProportionateScreenWidth(30),
+          ),
+          color: AppColor.kPrimaryColor,
+          child: Column(
+            children: [
+              const InputSearchBar(),
+              SizedBox(height: getProportionateScreenWidth(25)),
+              const DeliveryText(),
+            ],
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.symmetric(
+            vertical: getProportionateScreenWidth(15),
+            horizontal: getProportionateScreenWidth(15),
+          ),
+          child: SingleChildScrollView(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Row(
-                  children: [
-                    HeaderText(),
-                    Spacer(),
-                    CartIconButton(),
-                  ],
+                const SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      HomeBanner(bgColor: AppColor.kSecondaryColor),
+                      HomeBanner(bgColor: Color(0xFFE4DDCB)),
+                    ],
+                  ),
                 ),
                 SizedBox(height: getProportionateScreenWidth(30)),
-                const InputSearchBar(),
-                SizedBox(height: getProportionateScreenWidth(25)),
-                const DeliveryText(),
+                const PopularProducts(),
+                SizedBox(height: getProportionateScreenWidth(30)),
+                const SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      SavingCart(
+                        itemText: "346",
+                        timeText: "USD",
+                        subText: "Your Total Saving",
+                        bgColor: AppColor.kSecondaryLightColor,
+                      ),
+                      SavingCart(
+                        itemText: "215",
+                        timeText: "HRS",
+                        subText: "Your Time Saving",
+                        bgColor: Color(0xFFE4DDCB),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: getProportionateScreenWidth(30)),
+                const DealOnProducts(),
               ],
             ),
           ),
-          Expanded(
-            flex: 3,
-            child: Padding(
-              padding: EdgeInsets.symmetric(
-                vertical: getProportionateScreenWidth(15),
-                horizontal: getProportionateScreenWidth(15),
-              ),
-              child: SingleChildScrollView(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        children: [
-                          HomeBanner(bgColor: AppColor.kSecondaryColor),
-                          HomeBanner(bgColor: Color(0xFFE4DDCB)),
-                        ],
-                      ),
-                    ),
-                    SizedBox(height: getProportionateScreenWidth(20)),
-                    const PopularProducts(),
-                    SizedBox(height: getProportionateScreenWidth(20)),
-                    const SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        children: [
-                          SavingCart(
-                            itemText: "346",
-                            timeText: "USD",
-                            subText: "Your Total Saving",
-                            bgColor: AppColor.kSecondaryLightColor,
-                          ),
-                          SavingCart(
-                            itemText: "215",
-                            timeText: "HRS",
-                            subText: "Your Time Saving",
-                            bgColor: Color(0xFFE4DDCB),
-                          ),
-                        ],
-                      ),
-                    )
-                  ],
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

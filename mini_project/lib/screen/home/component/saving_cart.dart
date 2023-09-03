@@ -17,7 +17,7 @@ class SavingCart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(left: getProportionateScreenWidth(15)),
+      padding: EdgeInsets.only(right: getProportionateScreenWidth(15)),
       child: Container(
         padding: EdgeInsets.all(getProportionateScreenWidth(25)),
         height: SizeConfig.screenHeight! / 6,

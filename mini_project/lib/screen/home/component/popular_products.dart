@@ -39,7 +39,7 @@ class PopularCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(left: getProportionateScreenWidth(20)),
+      padding: EdgeInsets.only(right: getProportionateScreenWidth(20)),
       child: Container(
         width: SizeConfig.screenWidth! / 2.5,
         padding: EdgeInsets.all(getProportionateScreenWidth(20)),
