@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mini_project/colors.dart';
 import 'package:mini_project/screen/home/component/popular_products.dart';
 import 'package:mini_project/screen/home/component/saving_cart.dart';
-import 'package:mini_project/screen/home/component/search_bar.dart';
+import 'package:mini_project/screen/home/component/input_search_bar.dart';
 import 'package:mini_project/size_config.dart';
 import 'deal_on_product.dart';
 import 'delivery_text.dart';
