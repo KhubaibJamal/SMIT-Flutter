@@ -52,7 +52,6 @@ class DealCart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // width: SizeConfig.screenWidth! / 2.5,
       padding: EdgeInsets.all(getProportionateScreenWidth(20)),
       decoration: BoxDecoration(
         color: AppColor.kCartColor.withOpacity(0.5),

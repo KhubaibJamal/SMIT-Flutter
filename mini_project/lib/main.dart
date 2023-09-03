@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mini_project/route.dart';
 import 'package:mini_project/screen/splash/splash_screen.dart';
-
-import 'colors.dart';
+import 'package:mini_project/theme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,15 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Mini Project',
-      theme: ThemeData(
-        fontFamily: 'Manrope',
-        scaffoldBackgroundColor: Colors.white,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-        appBarTheme: const AppBarTheme(
-          elevation: 0,
-          backgroundColor: AppColor.kPrimaryColor,
-        ),
-      ),
+      theme: theme(),
       initialRoute: SplashScreen.routeName,
       routes: routes,
     );
