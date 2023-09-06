@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:mini_project/screen/category/category_screen.dart';
 
 import '../colors.dart';
 import '../enum.dart';
@@ -51,7 +52,9 @@ class CustomBottomNavBar extends StatelessWidget {
               ),
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, CategoryScreen.routeName);
+              },
               icon: SvgPicture.asset(
                 'assets/icons/Category.svg',
                 colorFilter: ColorFilter.mode(
