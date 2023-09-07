@@ -5,8 +5,10 @@ import '../colors.dart';
 import '../size_config.dart';
 
 class CartIconButton extends StatelessWidget {
+  final ColorFilter? colorFilter;
   const CartIconButton({
     super.key,
+    this.colorFilter,
   });
 
   @override
@@ -22,7 +24,10 @@ class CartIconButton extends StatelessWidget {
             color: Colors.transparent,
             shape: BoxShape.circle,
           ),
-          child: SvgPicture.asset('assets/icons/bag icon.svg'),
+          child: SvgPicture.asset(
+            'assets/icons/bag icon.svg',
+            colorFilter: colorFilter,
+          ),
         ),
         Positioned(
           right: 0,
