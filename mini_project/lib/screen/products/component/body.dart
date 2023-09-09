@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mini_project/screen/products/component/product_category_container.dart';
 import 'package:mini_project/size_config.dart';
 
 class Body extends StatelessWidget {
@@ -10,7 +9,6 @@ class Body extends StatelessWidget {
     return Column(
       children: [
         SizedBox(height: SizeConfig.screenHeight! * 0.04),
-        RowProductCategoryContainer(),
       ],
     );
   }

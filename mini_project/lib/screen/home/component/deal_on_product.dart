@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mini_project/model/deal_model.dart';
 
 import '../../../colors.dart';
+import '../../../component/custom_product_card.dart';
 import '../../../size_config.dart';
 
 class DealOnProducts extends StatelessWidget {
@@ -23,87 +24,21 @@ class DealOnProducts extends StatelessWidget {
         const SizedBox(height: 10),
         GridView.builder(
           shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
           itemCount: dealDemo.length,
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisSpacing: 10.0,
-            mainAxisSpacing: 10.0,
-            crossAxisCount: 2,
-          ),
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisSpacing: 10.0,
+              mainAxisSpacing: 10.0,
+              crossAxisCount: 2,
+              childAspectRatio: getProportionateScreenWidth(0.85)),
           itemBuilder: (context, index) {
-            return DealCart(
+            return CustomProductCard(
               price: dealDemo[index]["price"],
               name: dealDemo[index]["name"],
             );
           },
         ),
       ],
-    );
-  }
-}
-
-class DealCart extends StatelessWidget {
-  final String? price, name;
-  const DealCart({
-    super.key,
-    required this.price,
-    required this.name,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(getProportionateScreenWidth(20)),
-      decoration: BoxDecoration(
-        color: AppColor.kCartColor.withOpacity(0.5),
-        borderRadius: BorderRadius.circular(15),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Stack(
-            clipBehavior: Clip.none,
-            children: [
-              Center(
-                child: Image.asset('assets/images/item.png'),
-              ),
-              Positioned(
-                bottom: -10,
-                right: -10,
-                child: Container(
-                  height: 30,
-                  width: 30,
-                  decoration: const BoxDecoration(
-                    color: AppColor.kPrimaryColor,
-                    shape: BoxShape.circle,
-                  ),
-                  child: const Icon(
-                    Icons.add,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-            ],
-          ),
-          SizedBox(height: getProportionateScreenWidth(25)),
-          Text(
-            price!,
-            style: TextStyle(
-              color: AppColor.kTextDarkColor,
-              fontSize: getProportionateScreenWidth(14),
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          const SizedBox(height: 5),
-          Text(
-            name!,
-            softWrap: true,
-            overflow: TextOverflow.clip,
-            style: const TextStyle(
-              color: AppColor.kCartSubTextColor,
-            ),
-          ),
-        ],
-      ),
     );
   }
 }
