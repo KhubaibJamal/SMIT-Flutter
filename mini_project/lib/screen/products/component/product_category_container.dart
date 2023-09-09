@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mini_project/model/category_model.dart';
 import '../../../component/custom_category_container.dart';
+import '../../../model/product_category_model.dart';
 
 class RowCategoryContainer extends StatefulWidget {
   const RowCategoryContainer({super.key});
@@ -15,9 +16,9 @@ class _RowCategoryContainerState extends State<RowCategoryContainer> {
   Widget build(BuildContext context) {
     return Row(
       children: List.generate(
-        categoryDemoList.length,
+        productDemoList.length,
         (index) => CategoryContainer(
-          text: categoryDemoList[index]["text"]!,
+          text: productDemoList[index]["text"]!,
           isSelected: index == selectedCategoryIndex,
           press: () {
             setState(() {

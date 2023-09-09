@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mini_project/screen/products/component/body.dart';
 
 import 'component/product_app_bar.dart';
 
@@ -14,6 +15,7 @@ class ProductScreen extends StatelessWidget {
         preferredSize: const Size.fromHeight(kToolbarHeight),
         child: ProductScreenAppBar(title: title),
       ),
+      body: const Body(),
     );
   }
 }
