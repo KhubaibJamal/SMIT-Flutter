@@ -34,7 +34,8 @@ class CategoryCardList extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (context) => ProductScreen(
-                      title: "${categoryCardList[index]["title"]}"),
+                    title: "${categoryCardList[index]["title"]}",
+                  ),
                 ),
               );
             },

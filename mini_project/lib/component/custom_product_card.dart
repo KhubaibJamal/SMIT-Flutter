@@ -4,11 +4,12 @@ import '../colors.dart';
 import '../size_config.dart';
 
 class CustomProductCard extends StatelessWidget {
-  final String? price, name;
+  final String? name, price, subTitle;
   const CustomProductCard({
     super.key,
-    required this.price,
     required this.name,
+    required this.price,
+    required this.subTitle,
   });
 
   @override
@@ -52,6 +53,15 @@ class CustomProductCard extends StatelessWidget {
           ),
           SizedBox(height: getProportionateScreenWidth(25)),
           Text(
+            name!,
+            style: TextStyle(
+              color: AppColor.kTextDarkColor,
+              fontSize: getProportionateScreenWidth(14),
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: 5),
+          Text(
             price!,
             style: TextStyle(
               color: AppColor.kTextDarkColor,
@@ -61,7 +71,7 @@ class CustomProductCard extends StatelessWidget {
           ),
           const SizedBox(height: 5),
           Text(
-            name!,
+            subTitle!,
             softWrap: true,
             overflow: TextOverflow.clip,
             style: const TextStyle(

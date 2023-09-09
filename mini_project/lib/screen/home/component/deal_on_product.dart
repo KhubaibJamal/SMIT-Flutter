@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mini_project/model/deal_model.dart';
+import 'package:mini_project/model/product_model.dart';
 
 import '../../../colors.dart';
 import '../../../component/custom_product_card.dart';
@@ -25,16 +25,18 @@ class DealOnProducts extends StatelessWidget {
         GridView.builder(
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
-          itemCount: dealDemo.length,
+          itemCount: productCardDemoList.length,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisSpacing: 10.0,
-              mainAxisSpacing: 10.0,
-              crossAxisCount: 2,
-              childAspectRatio: getProportionateScreenWidth(0.85)),
+            crossAxisSpacing: 10.0,
+            mainAxisSpacing: 10.0,
+            crossAxisCount: 2,
+            childAspectRatio: getProportionateScreenWidth(0.75),
+          ),
           itemBuilder: (context, index) {
             return CustomProductCard(
-              price: dealDemo[index]["price"],
-              name: dealDemo[index]["name"],
+              name: "${productCardDemoList[index]["name"]}",
+              price: "${productCardDemoList[index]["price"]}",
+              subTitle: "${productCardDemoList[index]["subtitle"]}",
             );
           },
         ),

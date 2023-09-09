@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:mini_project/size_config.dart';
 
-import '../../../colors.dart';
-import '../../../component/cart_icon_button.dart';
+import '../colors.dart';
+import 'cart_icon_button.dart';
 
-class ProductScreenAppBar extends StatelessWidget {
-  const ProductScreenAppBar({
+class CustomAppBar extends StatelessWidget {
+  const CustomAppBar({
     super.key,
     required this.title,
   });
@@ -17,7 +17,6 @@ class ProductScreenAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: Colors.white,
-      // automaticallyImplyLeading: false,
       title: Row(
         children: [
           Text(

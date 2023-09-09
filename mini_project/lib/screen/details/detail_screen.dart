@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:mini_project/screen/products/component/body.dart';
+import 'package:mini_project/screen/details/component/body.dart';
 
 import '../../component/Custom_app_bar.dart';
 
-class ProductScreen extends StatelessWidget {
-  static String routeName = "/product";
-  final String title;
+class DetailScreen extends StatelessWidget {
+  static String routeName = "/detail";
+  final String title, price, subTitle;
 
-  const ProductScreen({
+  const DetailScreen({
     super.key,
     required this.title,
+    required this.price,
+    required this.subTitle,
   });
   @override
   Widget build(BuildContext context) {
@@ -18,7 +20,7 @@ class ProductScreen extends StatelessWidget {
         preferredSize: const Size.fromHeight(kToolbarHeight),
         child: CustomAppBar(title: title),
       ),
-      body: const Body(),
+      body: Body(title: title, price: price, subTitle: subTitle),
     );
   }
 }
