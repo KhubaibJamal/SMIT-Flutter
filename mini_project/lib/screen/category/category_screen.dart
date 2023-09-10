@@ -4,9 +4,7 @@ import 'package:mini_project/screen/category/component/body.dart';
 import 'package:mini_project/size_config.dart';
 
 import '../../component/cart_icon_button.dart';
-import '../../component/custom_navigation_bar.dart';
 import '../../component/header_text.dart';
-import '../../enum.dart';
 
 class CategoryScreen extends StatelessWidget {
   static String routeName = "/category";
@@ -26,8 +24,6 @@ class CategoryScreen extends StatelessWidget {
         ),
       ),
       body: const Body(),
-      bottomNavigationBar:
-          const CustomBottomNavBar(selectedMenu: MenuState.category),
     );
   }
 }

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:mini_project/colors.dart';
+import 'package:mini_project/component/custom_navigation_bar.dart';
 import 'package:mini_project/screen/splash/component/splash_content.dart';
 import 'package:mini_project/size_config.dart';
 
 import '../../../constant.dart';
-import '../../home/home_screen.dart';
 
 class Body extends StatefulWidget {
   const Body({super.key});
@@ -85,8 +85,14 @@ class _BodyState extends State<Body> {
                         backgroundColor: AppColor.kTextColor,
                       ),
                       onPressed: () {
-                        Navigator.pushReplacementNamed(
-                            context, HomeScreen.routeName);
+                        // Navigator.pushReplacementNamed(
+                        //     context, HomeScreen.routeName);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => CustomCurveNavigationBar(),
+                          ),
+                        );
                       },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
