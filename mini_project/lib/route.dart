@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mini_project/screen/cart/cart_screen.dart';
 import 'package:mini_project/screen/category/category_screen.dart';
 import 'package:mini_project/screen/details/detail_screen.dart';
 import 'package:mini_project/screen/home/home_screen.dart';
@@ -12,4 +13,5 @@ final Map<String, WidgetBuilder> routes = {
   ProductScreen.routeName: (context) => const ProductScreen(title: ""),
   DetailScreen.routeName: (context) =>
       const DetailScreen(title: "", price: '', subTitle: ''),
+  CartScreen.routeName: (context) => const CartScreen(),
 };
