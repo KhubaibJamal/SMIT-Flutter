@@ -3,6 +3,59 @@ import 'package:flutter/material.dart';
 import '../../../colors.dart';
 import '../../../size_config.dart';
 
+class SavingCarts extends StatelessWidget {
+  const SavingCarts({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      clipBehavior: Clip.none,
+      children: [
+        Positioned(
+          top: getProportionateScreenWidth(-12),
+          left: getProportionateScreenWidth(-10),
+          child: Image.asset("assets/images/ellipse1.png"),
+        ),
+        Positioned(
+          right: getProportionateScreenWidth(140),
+          top: getProportionateScreenWidth(20),
+          child: Image.asset("assets/images/ellipse2.png"),
+        ),
+        Positioned(
+          right: getProportionateScreenWidth(180),
+          bottom: -5,
+          child: Image.asset(
+            "assets/images/ellipse3.png",
+            color: AppColor.kPrimaryColor,
+          ),
+        ),
+        const Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            SavingCart(
+              itemText: "346",
+              timeText: "USD",
+              subText: "Your Total Saving",
+              bgColor: AppColor.kSecondaryLightColor,
+            ),
+            SavingCart(
+              itemText: "215",
+              timeText: "HRS",
+              subText: "Your Time Saving",
+              bgColor: Color(0xFFE4DDCB),
+            ),
+          ],
+        ),
+        Positioned(
+          right: -1,
+          top: 50,
+          child: Image.asset("assets/images/ellipse3.png"),
+        ),
+      ],
+    );
+  }
+}
+
 class SavingCart extends StatelessWidget {
   final String itemText, timeText, subText;
   final Color bgColor;
@@ -21,7 +74,7 @@ class SavingCart extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.all(getProportionateScreenWidth(25)),
         height: SizeConfig.screenHeight! / 6,
-        width: SizeConfig.screenWidth! / 2,
+        width: SizeConfig.screenWidth! / 2.5,
         decoration: BoxDecoration(
           color: bgColor,
           borderRadius: BorderRadius.circular(15),

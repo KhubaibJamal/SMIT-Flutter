@@ -34,45 +34,30 @@ class Body extends StatelessWidget {
             vertical: getProportionateScreenWidth(15),
             horizontal: getProportionateScreenWidth(15),
           ),
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: [
-                      HomeBanner(bgColor: AppColor.kSecondaryColor),
-                      HomeBanner(bgColor: Color(0xFFE4DDCB)),
-                    ],
-                  ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    HomeBanner(bgColor: AppColor.kSecondaryColor),
+                    HomeBanner(bgColor: Color(0xFFE4DDCB)),
+                  ],
                 ),
-                SizedBox(height: getProportionateScreenWidth(30)),
-                const PopularProducts(),
-                SizedBox(height: getProportionateScreenWidth(30)),
-                const SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: [
-                      SavingCart(
-                        itemText: "346",
-                        timeText: "USD",
-                        subText: "Your Total Saving",
-                        bgColor: AppColor.kSecondaryLightColor,
-                      ),
-                      SavingCart(
-                        itemText: "215",
-                        timeText: "HRS",
-                        subText: "Your Time Saving",
-                        bgColor: Color(0xFFE4DDCB),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(height: getProportionateScreenWidth(30)),
-                const DealOnProducts(),
-              ],
-            ),
+              ),
+              // recommended products
+              SizedBox(height: getProportionateScreenWidth(30)),
+              const PopularProducts(),
+
+              // saving cart
+              SizedBox(height: getProportionateScreenWidth(30)),
+              const SavingCarts(),
+
+              // deal on products
+              SizedBox(height: getProportionateScreenWidth(30)),
+              const DealOnProducts(),
+            ],
           ),
         ),
       ],

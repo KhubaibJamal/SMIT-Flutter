@@ -49,10 +49,11 @@ class Body extends StatelessWidget {
             ),
           ),
           Expanded(
-              flex: 2,
-              child: Container(
-                color: Colors.red,
-              )),
+            flex: 2,
+            child: Container(
+              color: Colors.red,
+            ),
+          ),
         ],
       ),
     );
