@@ -6,7 +6,7 @@ import 'package:mini_project/screen/favorite/favorite_screen.dart';
 
 import '../colors.dart';
 import '../screen/home/home_screen.dart';
-import '../screen/more/more_screen.dart';
+import '../screen/profile/profile_screen.dart';
 
 class CustomCurveNavigationBar extends StatefulWidget {
   const CustomCurveNavigationBar({super.key});
@@ -23,7 +23,7 @@ class _CustomCurveNavigationBarState extends State<CustomCurveNavigationBar> {
     HomeScreen(),
     CategoryScreen(),
     const FavoriteScreen(),
-    const MoreScreen(),
+    const ProfileScreen(),
   ];
 
   @override
