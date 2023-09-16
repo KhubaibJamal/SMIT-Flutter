@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mini_project/screen/favorite/component/body.dart';
 
 class FavoriteScreen extends StatelessWidget {
   const FavoriteScreen({super.key});
@@ -12,6 +13,7 @@ class FavoriteScreen extends StatelessWidget {
           "Favorite Products",
         ),
       ),
+      body: const Body(),
     );
   }
 }

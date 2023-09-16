@@ -25,7 +25,10 @@ class DealOnProducts extends StatelessWidget {
         GridView.builder(
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
-          itemCount: demoProducts.length,
+          itemCount: demoProducts.fold<int>(
+            0,
+            (count, product) => product.isPopular ? count + 1 : count,
+          ),
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisSpacing: 10.0,
             mainAxisSpacing: 10.0,
@@ -33,9 +36,42 @@ class DealOnProducts extends StatelessWidget {
             childAspectRatio: getProportionateScreenWidth(0.65),
           ),
           itemBuilder: (context, index) {
-            return ProductCard(product: demoProducts[index], press: () {});
+            // Find the index of the favorite product at the current index
+            int popularIndex = 0;
+            for (int i = 0; i < demoProducts.length; i++) {
+              if (demoProducts[i].isPopular) {
+                if (popularIndex == index) {
+                  // Return the favorite product at the current index
+                  return ProductCard(product: demoProducts[i], press: () {});
+                }
+                popularIndex++;
+              }
+            }
+
+            // Return an empty container for non-favorite products
+            return Container(
+              child: Text("data"),
+            );
           },
         ),
+
+        // GridView.builder(
+        //   shrinkWrap: true,
+        //   physics: const NeverScrollableScrollPhysics(),
+        //   itemCount: demoProducts.length,
+        //   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        //     crossAxisSpacing: 10.0,
+        //     mainAxisSpacing: 10.0,
+        //     crossAxisCount: 2,
+        //     childAspectRatio: getProportionateScreenWidth(0.65),
+        //   ),
+        //   itemBuilder: (context, index) {
+        //     if (demoProducts[index].isPopular) {
+        //       return ProductCard(product: demoProducts[index], press: () {});
+        //     }
+        //     return null;
+        //   },
+        // ),
       ],
     );
   }

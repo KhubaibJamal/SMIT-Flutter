@@ -44,7 +44,7 @@ List<Product> demoProducts = [
     price: 50.5,
     description: description,
     rating: 4.1,
-    isPopular: true,
+    // isPopular: true,
   ),
   Product(
     id: 3,
@@ -55,7 +55,6 @@ List<Product> demoProducts = [
     price: 36.55,
     description: description,
     rating: 4.1,
-    isFavorite: true,
     isPopular: true,
   ),
   Product(
@@ -68,6 +67,7 @@ List<Product> demoProducts = [
     description: description,
     rating: 4.1,
     isFavorite: true,
+    isPopular: true,
   ),
 ];
 
