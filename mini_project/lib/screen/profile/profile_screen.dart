@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mini_project/screen/profile/component/body.dart';
 
 class ProfileScreen extends StatelessWidget {
   static String routeName = "profile";
@@ -9,10 +10,9 @@ class ProfileScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: const Text(
-          "More",
-        ),
+        title: const Text("Profile"),
       ),
+      body: const Body(),
     );
   }
 }
