@@ -4,56 +4,71 @@ import '../../../colors.dart';
 import '../../../size_config.dart';
 
 class HomeBanner extends StatelessWidget {
-  final Color bgColor;
-  const HomeBanner({
-    super.key,
-    required this.bgColor,
-  });
+  final String image;
+  const HomeBanner({super.key, required this.image});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(right: getProportionateScreenWidth(15)),
-      child: Container(
-        padding: EdgeInsets.all(getProportionateScreenWidth(20)),
-        height: SizeConfig.screenHeight! / 6,
-        width: SizeConfig.screenWidth! * 0.7,
-        decoration: BoxDecoration(
-          color: bgColor,
-          borderRadius: BorderRadius.circular(15),
-        ),
-        child: Row(
-          children: [
-            Image.asset('assets/images/item.png'),
-            const Spacer(),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Text(
-                  "Get",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: getProportionateScreenWidth(18)),
-                ),
-                Text(
-                  "50% OFF",
-                  style: TextStyle(
-                    color: AppColor.kGreyColor,
-                    fontWeight: FontWeight.w600,
-                    fontSize: getProportionateScreenWidth(24),
+      child: SizedBox(
+        width: getProportionateScreenWidth(242),
+        height: getProportionateScreenWidth(100),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(20),
+          child: Stack(
+            children: [
+              Image.asset(
+                image,
+                fit: BoxFit.cover,
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      const Color(0xFF343434).withOpacity(0.4),
+                      const Color(0xFF343434).withOpacity(0.15),
+                    ],
                   ),
                 ),
-                Text(
-                  "On first 03 order",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: getProportionateScreenWidth(18),
-                  ),
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: getProportionateScreenWidth(15),
+                  vertical: getProportionateScreenWidth(10),
                 ),
-              ],
-            ),
-          ],
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Text(
+                      "Get",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: getProportionateScreenWidth(18)),
+                    ),
+                    Text(
+                      "50% OFF",
+                      style: TextStyle(
+                        color: AppColor.kGreyColor,
+                        fontWeight: FontWeight.w600,
+                        fontSize: getProportionateScreenWidth(24),
+                      ),
+                    ),
+                    Text(
+                      "On first 03 order",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: getProportionateScreenWidth(18),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

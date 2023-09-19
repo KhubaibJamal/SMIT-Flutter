@@ -41,8 +41,10 @@ class Body extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
-                    HomeBanner(bgColor: AppColor.kSecondaryColor),
-                    HomeBanner(bgColor: Color(0xFFE4DDCB)),
+                    // HomeBanner(bgColor: AppColor.kSecondaryColor),
+                    // HomeBanner(bgColor: Color(0xFFE4DDCB)),
+                    HomeBanner(image: 'assets/images/Image Banner 2.png'),
+                    HomeBanner(image: 'assets/images/Image Banner 3.png')
                   ],
                 ),
               ),
