@@ -4,26 +4,26 @@ import 'package:mini_project/screen/details/component/product_image.dart';
 import 'package:mini_project/size_config.dart';
 
 import '../../../colors.dart';
+import '../../../model/product.dart';
 
-class Body extends StatelessWidget {
-  final String title, price, subTitle;
-  const Body({
-    Key? key,
-    required this.title,
-    required this.price,
-    required this.subTitle,
-  }) : super(key: key);
+class Body extends StatefulWidget {
+  final Product product;
+  const Body({Key? key, required this.product}) : super(key: key);
 
+  @override
+  State<Body> createState() => _BodyState();
+}
+
+class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const ProductImage(),
-        SizedBox(height: getProportionateScreenWidth(20)),
+        ProductImage(product: widget.product),
+        SizedBox(height: getProportionateScreenWidth(10)),
         Expanded(
-          flex: 2,
           child: Container(
-            width: SizeConfig.screenWidth! * 0.9,
+            // width: SizeConfig.screenWidth! * 0.9,
             padding: EdgeInsets.symmetric(
               vertical: getProportionateScreenWidth(20),
               horizontal: getProportionateScreenWidth(20),
@@ -32,7 +32,7 @@ class Body extends StatelessWidget {
               color: AppColor.kCartColor,
               borderRadius: BorderRadius.circular(15),
             ),
-            child: ProductDescription(title: title, price: price),
+            child: ProductDescription(product: widget.product),
           ),
         ),
       ],

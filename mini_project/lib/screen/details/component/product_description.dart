@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:mini_project/model/product.dart';
 
 import '../../../colors.dart';
 import '../../../constant.dart';
@@ -7,14 +8,11 @@ import '../../../size_config.dart';
 import 'detail_screen_btn.dart';
 
 class ProductDescription extends StatelessWidget {
+  final Product product;
   const ProductDescription({
     super.key,
-    required this.title,
-    required this.price,
+    required this.product,
   });
-
-  final String title;
-  final String price;
 
   @override
   Widget build(BuildContext context) {
@@ -22,18 +20,18 @@ class ProductDescription extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          title,
+          product.title,
           style: headingStyle.copyWith(
             color: Colors.black,
             fontWeight: FontWeight.w500,
           ),
         ),
-        SizedBox(height: getProportionateScreenWidth(20)),
+        SizedBox(height: getProportionateScreenWidth(10)),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              "$price/KG",
+              "${product.price}/KG",
               style: subHeadingStyle.copyWith(
                 color: AppColor.kPrimaryColor,
               ),
@@ -57,14 +55,13 @@ class ProductDescription extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(height: getProportionateScreenWidth(25)),
+        SizedBox(height: getProportionateScreenWidth(20)),
         Row(
-          // crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             RatingBar.builder(
               itemSize: 24.0,
-              initialRating: 3.5,
+              initialRating: product.rating,
               minRating: 1,
               allowHalfRating: true,
               itemCount: 5,
@@ -81,7 +78,7 @@ class ProductDescription extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(height: getProportionateScreenWidth(20)),
+        SizedBox(height: getProportionateScreenWidth(15)),
         Text(
           "Details",
           style: homeDeliveryTextStyle.copyWith(
@@ -90,7 +87,8 @@ class ProductDescription extends StatelessWidget {
         ),
         SizedBox(height: getProportionateScreenWidth(10)),
         Text(
-          "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam quis risus eget urna mollis ornare vel eu leo.",
+          product.description,
+          maxLines: 2,
           style: subHeadingStyle.copyWith(
             color: AppColor.kGreyLightColor,
           ),
@@ -99,7 +97,7 @@ class ProductDescription extends StatelessWidget {
         // button
         const Spacer(),
         Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             SizedBox(
               width: SizeConfig.screenWidth! / 3,

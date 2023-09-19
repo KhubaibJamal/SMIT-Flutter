@@ -29,25 +29,17 @@ class Body extends StatelessWidget {
           childAspectRatio: getProportionateScreenWidth(0.65),
         ),
         itemBuilder: (context, index) {
-          return GestureDetector(
-            onTap: () {
-              Navigator.push(
+          return ProductCard(
+            product: demoProducts[index],
+            press: () {
+              Navigator.pushNamed(
                 context,
-                MaterialPageRoute(
-                  builder: (context) => DetailScreen(
-                    title: "${productCardDemoList[index]["name"]}",
-                    price: "${productCardDemoList[index]["price"]}",
-                    subTitle: "${productCardDemoList[index]["subTitle"]}",
-                  ),
+                DetailScreen.routeName,
+                arguments: ProductsDetailsArguments(
+                  product: demoProducts[index],
                 ),
               );
             },
-            child: ProductCard(product: demoProducts[index], press: () {}),
-            // child: CustomProductCard(
-            //   name: productCardDemoList[index]["name"],
-            //   price: productCardDemoList[index]["price"],
-            //   subTitle: productCardDemoList[index]["subTitle"],
-            // ),
           );
         },
       ),

@@ -43,7 +43,7 @@ List<Product> demoProducts = [
     title: "Nike Sport White - Man Pant",
     price: 50.5,
     description: description,
-    rating: 4.1,
+    rating: 2.5,
     // isPopular: true,
   ),
   Product(
@@ -54,7 +54,7 @@ List<Product> demoProducts = [
     title: "Gloves XC Omega - Polygon",
     price: 36.55,
     description: description,
-    rating: 4.1,
+    rating: 3.1,
     isPopular: true,
   ),
   Product(
@@ -65,7 +65,7 @@ List<Product> demoProducts = [
     title: "Logitech Head",
     price: 20.20,
     description: description,
-    rating: 4.1,
+    rating: 2.1,
     isFavorite: true,
     isPopular: true,
   ),

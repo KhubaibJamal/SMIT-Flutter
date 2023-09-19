@@ -47,7 +47,10 @@ class Body extends StatelessWidget {
           if (demoProducts[i].isFavorite) {
             if (favoriteIndex == index) {
               // Return the favorite product at the current index
-              return ProductCard(product: demoProducts[i], press: () {});
+              return ProductCard(
+                product: demoProducts[i],
+                press: () {},
+              );
             }
             favoriteIndex++;
           }
