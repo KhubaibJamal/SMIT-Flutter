@@ -4,6 +4,7 @@ import 'package:mini_project/model/product.dart';
 
 import '../../../colors.dart';
 import '../../../constant.dart';
+import '../../../model/cart.dart';
 import '../../../size_config.dart';
 import 'detail_screen_btn.dart';
 
@@ -106,7 +107,15 @@ class ProductDescription extends StatelessWidget {
                 text: "Add To Cart",
                 bgColor: Colors.white,
                 textColor: AppColor.kPrimaryColor,
-                press: () {},
+                press: () {
+                  if (product.images.isNotEmpty) {
+                    cart.add({
+                      "title": product.title,
+                      "price": "${product.price}",
+                      "image": product.images[0],
+                    });
+                  }
+                },
               ),
             ),
             SizedBox(
