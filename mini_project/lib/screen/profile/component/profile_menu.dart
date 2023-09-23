@@ -19,13 +19,15 @@ class ProfileMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: List.generate(profileItemList.length, (index) {
-        return ProfileMenuItem(
-          text: "${profileItemList[index]['text']}",
-          icon: "${profileItemList[index]['icon']}",
-        );
-      }),
+    return SingleChildScrollView(
+      child: Column(
+        children: List.generate(profileItemList.length, (index) {
+          return ProfileMenuItem(
+            text: "${profileItemList[index]['text']}",
+            icon: "${profileItemList[index]['icon']}",
+          );
+        }),
+      ),
     );
   }
 }
