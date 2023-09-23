@@ -1,81 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:mini_project/colors.dart';
 import 'package:mini_project/constant.dart';
-
+import 'package:mini_project/screen/cart/component/price_section.dart';
 import '../../../model/cart.dart';
+import 'cart_items.dart';
 
-class Body extends StatelessWidget {
+class Body extends StatefulWidget {
   const Body({super.key});
 
   @override
+  State<Body> createState() => _BodyState();
+}
+
+class _BodyState extends State<Body> {
+  @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Expanded(
-          flex: 2,
-          child: ListView.builder(
-            itemCount: cart.length,
-            itemBuilder: (context, index) {
-              // print(cart[index]["image"]);
-              return Row(
-                children: [
-                  SizedBox(
-                    height: 100,
-                    width: 100,
-                    child: Center(
-                      child: Image.asset(
-                        "${cart[index]["image"]}",
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(width: 5),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "${cart[index]["title"]}",
-                        style: subHeadingStyle.copyWith(
-                          color: AppColor.kTextDarkColor,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Row(
-                        children: [
-                          Text(
-                            "\$${cart[index]["price"]}",
-                            style: subHeadingStyle.copyWith(
-                              color: AppColor.kTextDarkColor,
-                            ),
-                          ),
-                          // Spacer(),
-                          IconButton(
-                            onPressed: () {},
-                            icon: const Icon(Icons.remove_circle),
-                          ),
-                          Text(
-                            "1",
-                            style: subHeadingStyle.copyWith(
-                              color: AppColor.kTextDarkColor,
-                            ),
-                          ),
-                          IconButton(
-                            onPressed: () {},
-                            icon: const Icon(Icons.add_circle),
-                          ),
-                        ],
-                      ),
-                    ],
-                  )
-                ],
-              );
-            },
-          ),
-        ),
-        Expanded(
-          child: Container(color: Colors.yellow),
-        ),
-      ],
-    );
+    return cart.isNotEmpty
+        ? const Column(
+            children: [
+              // cart items
+              CartItems(),
+
+              // total price section
+              PriceSection(),
+            ],
+          )
+        : Center(
+            child: Text(
+              "Your Cart is Empty",
+              style: headingStyle.copyWith(color: AppColor.kTextDarkColor),
+            ),
+          );
   }
 }

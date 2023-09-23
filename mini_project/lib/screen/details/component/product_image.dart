@@ -159,7 +159,7 @@ class _ProductImageState extends State<ProductImage> {
           border: Border.all(
             width: 2.0,
             color: selectedImage == index
-                ? AppColor.kPrimaryColor
+                ? AppColor.kSecondaryColor
                 : Colors.transparent,
           ),
         ),

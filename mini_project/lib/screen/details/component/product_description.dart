@@ -32,7 +32,7 @@ class ProductDescription extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              "${product.price}/KG",
+              "\$${product.price}/KG",
               style: subHeadingStyle.copyWith(
                 color: AppColor.kPrimaryColor,
               ),
@@ -111,10 +111,25 @@ class ProductDescription extends StatelessWidget {
                   if (product.images.isNotEmpty) {
                     cart.add({
                       "title": product.title,
-                      "price": "${product.price}",
+                      "price": product.title,
                       "image": product.images[0],
+                      "itemCount": 1,
                     });
                   }
+                  final snackBar = SnackBar(
+                    shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(12),
+                        topRight: Radius.circular(12),
+                      ),
+                    ),
+                    backgroundColor: AppColor.kSecondaryColor,
+                    content: Text(
+                      '${product.title} product is in the cart!',
+                      style: subHeadingStyle,
+                    ),
+                  );
+                  ScaffoldMessenger.of(context).showSnackBar(snackBar);
                 },
               ),
             ),

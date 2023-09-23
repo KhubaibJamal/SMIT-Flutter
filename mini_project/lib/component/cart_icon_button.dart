@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:mini_project/model/cart.dart';
 import 'package:mini_project/screen/cart/cart_screen.dart';
 
 import '../colors.dart';
@@ -46,7 +47,7 @@ class CartIconButton extends StatelessWidget {
               ),
               child: Center(
                 child: Text(
-                  "3",
+                  "${cart.length}",
                   style: TextStyle(
                     fontSize: getProportionateScreenWidth(12),
                     color: Colors.white,
