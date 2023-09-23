@@ -111,7 +111,7 @@ class ProductDescription extends StatelessWidget {
                   if (product.images.isNotEmpty) {
                     cart.add({
                       "title": product.title,
-                      "price": product.title,
+                      "price": product.price,
                       "image": product.images[0],
                       "itemCount": 1,
                     });
@@ -123,10 +123,11 @@ class ProductDescription extends StatelessWidget {
                         topRight: Radius.circular(12),
                       ),
                     ),
-                    backgroundColor: AppColor.kSecondaryColor,
+                    backgroundColor: AppColor.kPrimaryColor,
                     content: Text(
                       '${product.title} product is in the cart!',
-                      style: subHeadingStyle,
+                      style:
+                          subHeadingStyle.copyWith(color: AppColor.kTextColor),
                     ),
                   );
                   ScaffoldMessenger.of(context).showSnackBar(snackBar);
