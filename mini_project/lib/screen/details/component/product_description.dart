@@ -118,6 +118,7 @@ class ProductDescription extends StatelessWidget {
                       });
                     }
                     final snackBar = SnackBar(
+                      duration: const Duration(milliseconds: 300),
                       shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(12),

@@ -21,7 +21,9 @@ class _CartItemsState extends State<CartItems> {
       child: ListView.builder(
         itemCount: cart.length,
         itemBuilder: (context, index) {
+          double price = cart[index]["price"];
           return ListTile(
+            // product image
             leading: SizedBox(
               height: 100,
               width: 100,
@@ -32,6 +34,8 @@ class _CartItemsState extends State<CartItems> {
                 ),
               ),
             ),
+
+            // product title
             title: Text(
               "${cart[index]["title"]}",
               style: subHeadingStyle.copyWith(
@@ -39,8 +43,10 @@ class _CartItemsState extends State<CartItems> {
                 fontWeight: FontWeight.bold,
               ),
             ),
+
+            // product price
             subtitle: Text(
-              "\$${cart[index]["price"]}",
+              "\$$price",
               style: subHeadingStyle.copyWith(
                 color: AppColor.kCartSubTextColor,
                 fontWeight: FontWeight.bold,
@@ -49,6 +55,7 @@ class _CartItemsState extends State<CartItems> {
             trailing: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
+                // remove icon
                 IconButton(
                   onPressed: () {
                     setState(() {
@@ -75,9 +82,9 @@ class _CartItemsState extends State<CartItems> {
                     setState(() {
                       cart[index]["itemCount"] += 1;
 
-                      // cart[index]["price"] =
-                      //     cart[index]["price"] * cart[index]["itemCount"];
+                      price = cart[index]["price"] * cart[index]["itemCount"];
                     });
+                    print(price);
                     // updateTotalPrice(index, cart[index]['itemCount'], true);
                   },
                   icon: const Icon(
