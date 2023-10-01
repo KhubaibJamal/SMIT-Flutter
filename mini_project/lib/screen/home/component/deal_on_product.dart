@@ -45,6 +45,7 @@ class DealOnProducts extends StatelessWidget {
                   return ProductCard(
                     product: demoProducts[i],
                     press: () {},
+                    favoritePress: () {},
                   );
                 }
                 popularIndex++;

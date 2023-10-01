@@ -46,7 +46,7 @@ class _CartItemsState extends State<CartItems> {
 
             // product price
             subtitle: Text(
-              "\$$price",
+              "\$${cart[index]["price"]}",
               style: subHeadingStyle.copyWith(
                 color: AppColor.kCartSubTextColor,
                 fontWeight: FontWeight.bold,

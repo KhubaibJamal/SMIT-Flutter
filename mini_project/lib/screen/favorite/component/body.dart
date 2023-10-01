@@ -9,26 +9,6 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // return GridView.builder(
-    //   itemCount: demoProducts.length,
-    //   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-    //     crossAxisSpacing: 10.0,
-    //     mainAxisSpacing: 10.0,
-    //     crossAxisCount: 2,
-    //     childAspectRatio: getProportionateScreenWidth(0.65),
-    //   ),
-    //   itemBuilder: (context, index) {
-    //     if (demoProducts[index].isFavorite) {
-    //       return ProductCard(product: demoProducts[index], press: () {});
-    //     } else {
-    //       // Return an empty container for non-favorite products
-    //       return Container(
-    //         child: Text("data"),
-    //       );
-    //     }
-    //   },
-    // );
-
     return GridView.builder(
       itemCount: demoProducts.fold<int>(
         0,
@@ -50,6 +30,7 @@ class Body extends StatelessWidget {
               return ProductCard(
                 product: demoProducts[i],
                 press: () {},
+                favoritePress: () {},
               );
             }
             favoriteIndex++;

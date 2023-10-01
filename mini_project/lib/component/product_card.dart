@@ -10,11 +10,13 @@ class ProductCard extends StatelessWidget {
     this.aspectRation = 1.02,
     required this.product,
     required this.press,
+    required this.favoritePress,
   });
 
   final double aspectRation;
   final Product product;
   final GestureTapCallback press;
+  final VoidCallback favoritePress;
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +58,7 @@ class ProductCard extends StatelessWidget {
                 ),
                 InkWell(
                   borderRadius: BorderRadius.circular(50),
-                  onTap: () {},
+                  onTap: favoritePress,
                   child: Container(
                     height: getProportionateScreenWidth(28),
                     width: getProportionateScreenWidth(28),
