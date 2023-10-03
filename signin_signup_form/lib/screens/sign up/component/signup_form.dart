@@ -26,27 +26,27 @@ class _SignUpFormState extends State<SignUpForm> {
               decoration: inputDecoration(hintText: "Enter your name"),
             ),
 
-            SizedBox(height: getProportionateScreenHeight(20)),
+            SizedBox(height: getProportionateScreenHeight(15)),
 
             // user email
             TextFormField(
               decoration: inputDecoration(hintText: "Enter your Email"),
             ),
-            SizedBox(height: getProportionateScreenHeight(20)),
+            SizedBox(height: getProportionateScreenHeight(15)),
 
             // user password
             TextFormField(
               decoration: inputDecoration(hintText: "Enter your Password"),
             ),
 
-            SizedBox(height: getProportionateScreenHeight(20)),
+            SizedBox(height: getProportionateScreenHeight(15)),
 
             // confirm password
             TextFormField(
               decoration: inputDecoration(hintText: "Re-Enter your Password "),
             ),
 
-            SizedBox(height: getProportionateScreenHeight(8)),
+            // SizedBox(height: getProportionateScreenHeight(8)),
             // terms and conditions
             Row(
               children: [
