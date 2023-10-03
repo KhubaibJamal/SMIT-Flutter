@@ -36,9 +36,12 @@ class Body extends StatelessWidget {
 
           // welcome picture
           const Spacer(),
-          Image.asset(
-            'assets/images/welcome.png',
-            scale: 0.5,
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Image.asset(
+              'assets/images/welcome.png',
+              scale: 0.5,
+            ),
           ),
         ],
       ),

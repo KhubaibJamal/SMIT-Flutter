@@ -43,39 +43,44 @@ class Body extends StatelessWidget {
               const SignUpForm(),
 
               // image and create account button
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              Stack(
+                // crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Image.asset(
-                    'assets/images/signup.png',
-                    scale: 0.5,
+                  Align(
+                    alignment: Alignment.bottomLeft,
+                    child: Image.asset(
+                      'assets/images/signup.png',
+                      scale: 0.5,
+                    ),
                   ),
-                  Column(
-                    children: [
-                      SizedBox(
-                        width: SizeConfig.screenWidth! * 0.4,
-                        child: DefaultButton(
-                          text: "Sign up",
-                          press: () {},
-                          borderRadius: 30,
+                  Positioned(
+                    right: getProportionateScreenWidth(15),
+                    top: getProportionateScreenWidth(15),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          width: SizeConfig.screenWidth! * 0.5,
+                          child: DefaultButton(
+                            text: "Create Account",
+                            press: () {},
+                            borderRadius: 30,
+                          ),
                         ),
-                      ),
-                      SizedBox(height: getProportionateScreenWidth(10)),
-                      Text(
-                        "Already have an account?",
-                        style: defaultTextStyle.copyWith(
-                          fontSize: getProportionateScreenWidth(15),
+                        SizedBox(height: getProportionateScreenWidth(10)),
+                        Text(
+                          "Already have an account?",
+                          style: defaultTextStyle,
                         ),
-                      ),
-                      SizedBox(height: getProportionateScreenWidth(10)),
-                      GestureDetector(
-                        onTap: () {},
-                        child: Text(
-                          " Login",
-                          style: defaultTextStyle.copyWith(color: blackColor),
+                        SizedBox(height: getProportionateScreenWidth(10)),
+                        GestureDetector(
+                          onTap: () {},
+                          child: Text(
+                            "Login",
+                            style: defaultTextStyle.copyWith(color: blackColor),
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ],
               ),
