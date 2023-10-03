@@ -12,3 +12,11 @@ final defaultTextStyle = TextStyle(
   fontSize: getProportionateScreenWidth(18),
   fontWeight: FontWeight.w700,
 );
+
+// input border decoration
+OutlineInputBorder outlineInputBorder() {
+  return OutlineInputBorder(
+    borderRadius: BorderRadius.circular(25),
+    borderSide: BorderSide.none,
+  );
+}

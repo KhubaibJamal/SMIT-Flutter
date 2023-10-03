@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:signin_signup_form/component/default_button.dart';
+import 'package:signin_signup_form/screens/sign%20up/sign_up_screen.dart';
 import 'package:signin_signup_form/screens/welcome/component/welcome_text.dart';
 import 'package:signin_signup_form/size_config.dart';
 
@@ -23,7 +24,9 @@ class Body extends StatelessWidget {
             child: DefaultButton(
               text: "Sign up",
               borderRadius: 15,
-              press: () {},
+              press: () {
+                Navigator.pushReplacementNamed(context, SignUpScreen.routeName);
+              },
             ),
           ),
           SizedBox(height: getProportionateScreenWidth(5)),
