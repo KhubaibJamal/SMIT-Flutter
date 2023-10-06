@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:signin_signup_form/component/default_button.dart';
 import 'package:signin_signup_form/component/google_button.dart';
+import 'package:signin_signup_form/screens/sign%20up/component/sign_up_image_with_button.dart';
 import 'package:signin_signup_form/screens/sign%20up/component/signup_form.dart';
 import 'package:signin_signup_form/size_config.dart';
 
@@ -43,47 +43,7 @@ class Body extends StatelessWidget {
               const SignUpForm(),
 
               // image and create account button
-              Stack(
-                // crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Align(
-                    alignment: Alignment.bottomLeft,
-                    child: Image.asset(
-                      'assets/images/signup.png',
-                      scale: 0.5,
-                    ),
-                  ),
-                  Positioned(
-                    right: getProportionateScreenWidth(15),
-                    top: getProportionateScreenWidth(15),
-                    child: Column(
-                      children: [
-                        SizedBox(
-                          width: SizeConfig.screenWidth! * 0.5,
-                          child: DefaultButton(
-                            text: "Create Account",
-                            press: () {},
-                            borderRadius: 30,
-                          ),
-                        ),
-                        SizedBox(height: getProportionateScreenWidth(10)),
-                        Text(
-                          "Already have an account?",
-                          style: defaultTextStyle,
-                        ),
-                        SizedBox(height: getProportionateScreenWidth(10)),
-                        GestureDetector(
-                          onTap: () {},
-                          child: Text(
-                            "Login",
-                            style: defaultTextStyle.copyWith(color: blackColor),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
+              const SignUpImageWithButton(),
             ],
           ),
         ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:signin_signup_form/screens/sign%20in/sign_in_screen.dart';
 
 import '../../../const.dart';
 
@@ -14,7 +15,9 @@ class AlreadyHaveAnAccount extends StatelessWidget {
       children: [
         Text("Already have an account?", style: defaultTextStyle),
         GestureDetector(
-          onTap: () {},
+          onTap: () {
+            Navigator.pushNamed(context, SignInScreen.routeName);
+          },
           child: Text(
             " Login",
             style: defaultTextStyle.copyWith(color: blackColor),

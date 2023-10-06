@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:signin_signup_form/screens/sign%20in/component/sign_in_form.dart';
 
 import '../../../component/continue_with_text.dart';
 import '../../../component/google_button.dart';
 import '../../../const.dart';
 import '../../../size_config.dart';
+import 'sign_in_image_with_button.dart';
 
 class Body extends StatelessWidget {
   const Body({super.key});
@@ -36,6 +38,12 @@ class Body extends StatelessWidget {
             // continue with email
             SizedBox(height: getProportionateScreenWidth(15)),
             const ContinueWithText(text: "or log in with Email"),
+
+            // login form
+            const SignInform(),
+
+            // sign in image and button
+            const SignInImageWithButton()
           ],
         ),
       ),

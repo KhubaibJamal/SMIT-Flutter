@@ -70,26 +70,4 @@ class _SignUpFormState extends State<SignUpForm> {
       ),
     );
   }
-
-  InputDecoration inputDecoration({required String hintText}) {
-    return InputDecoration(
-      contentPadding: EdgeInsets.symmetric(
-        vertical: getProportionateScreenWidth(8),
-        horizontal: getProportionateScreenWidth(15),
-      ),
-      constraints: BoxConstraints(
-        maxHeight: getProportionateScreenWidth(50),
-      ),
-      filled: true,
-      fillColor: textFieldBgColor,
-      hintText: hintText,
-      hintStyle: TextStyle(
-        fontSize: getProportionateScreenWidth(20),
-        fontWeight: FontWeight.w700,
-      ),
-      border: outlineInputBorder(),
-      enabledBorder: outlineInputBorder(),
-      focusedBorder: outlineInputBorder(),
-    );
-  }
 }
