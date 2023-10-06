@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:signin_signup_form/component/default_button.dart';
 import 'package:signin_signup_form/screens/sign%20up/sign_up_screen.dart';
+import 'package:signin_signup_form/screens/welcome/component/welcome_bottom_image.dart';
 import 'package:signin_signup_form/screens/welcome/component/welcome_text.dart';
 import 'package:signin_signup_form/size_config.dart';
 
@@ -18,7 +19,7 @@ class Body extends StatelessWidget {
           const WelcomeText(),
 
           // sign up button
-          SizedBox(height: SizeConfig.screenHeight! * 0.35),
+          SizedBox(height: SizeConfig.screenHeight! * 0.34),
           SizedBox(
             width: SizeConfig.screenWidth! * 0.8,
             child: DefaultButton(
@@ -35,14 +36,8 @@ class Body extends StatelessWidget {
           const AlreadyHaveAnAccount(),
 
           // welcome picture
-          const Spacer(),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Image.asset(
-              'assets/images/welcome.png',
-              scale: 0.5,
-            ),
-          ),
+          SizedBox(height: getProportionateScreenWidth(5)),
+          const WelcomeBottomImage(),
         ],
       ),
     );

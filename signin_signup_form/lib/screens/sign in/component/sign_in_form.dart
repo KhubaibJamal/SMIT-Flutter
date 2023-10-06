@@ -24,6 +24,7 @@ class _SignInformState extends State<SignInform> {
             // user email
             SizedBox(height: getProportionateScreenHeight(18)),
             Text('Email', style: defaultTextStyle),
+            const SizedBox(height: 5),
             TextFormField(
               decoration: inputDecoration(hintText: "Enter your Email"),
             ),
@@ -31,6 +32,7 @@ class _SignInformState extends State<SignInform> {
             // user password
             SizedBox(height: getProportionateScreenHeight(18)),
             Text('Password', style: defaultTextStyle),
+            const SizedBox(height: 5),
             TextFormField(
               decoration: inputDecoration(hintText: "Enter your Password"),
             ),

@@ -10,49 +10,50 @@ class SignInImageWithButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      // fit: StackFit.expand,
-      // crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Align(
-          alignment: Alignment.bottomRight,
-          child: Image.asset(
-            'assets/images/login.png',
-            scale: 0.5,
+    return SizedBox(
+      height: SizeConfig.screenHeight! * 0.4,
+      child: Stack(
+        children: [
+          Align(
+            alignment: Alignment.bottomRight,
+            child: Image.asset(
+              'assets/images/login.png',
+              scale: 0.5,
+            ),
           ),
-        ),
-        Positioned(
-          left: getProportionateScreenWidth(10),
-          top: getProportionateScreenWidth(15),
-          child: Column(
-            children: [
-              SizedBox(
-                width: SizeConfig.screenWidth! * 0.5,
-                child: DefaultButton(
-                  text: "Login Account",
-                  borderRadius: 30,
-                  press: () {},
+          Positioned(
+            left: getProportionateScreenWidth(10),
+            top: getProportionateScreenWidth(15),
+            child: Column(
+              children: [
+                SizedBox(
+                  width: SizeConfig.screenWidth! * 0.5,
+                  child: DefaultButton(
+                    text: "Login Account",
+                    borderRadius: 30,
+                    press: () {},
+                  ),
                 ),
-              ),
-              SizedBox(height: getProportionateScreenWidth(10)),
-              Text(
-                "Already have an account?",
-                style: defaultTextStyle,
-              ),
-              SizedBox(height: getProportionateScreenWidth(10)),
-              GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, SignUpScreen.routeName);
-                },
-                child: Text(
-                  "Sign UP",
-                  style: defaultTextStyle.copyWith(color: blackColor),
+                SizedBox(height: getProportionateScreenWidth(10)),
+                Text(
+                  "Already have an account?",
+                  style: defaultTextStyle,
                 ),
-              ),
-            ],
+                SizedBox(height: getProportionateScreenWidth(10)),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, SignUpScreen.routeName);
+                  },
+                  child: Text(
+                    "Sign UP",
+                    style: defaultTextStyle.copyWith(color: blackColor),
+                  ),
+                ),
+              ],
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
