@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "707515933020",
+    "project_id": "authentication-for-smit",
+    "storage_bucket": "authentication-for-smit.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:707515933020:android:a5521b54917fc35b94a199",
+        "android_client_info": {
+          "package_name": "com.example.signin_signup_form"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyLg_dkvsrWye109p7vox8LsxiqXphpgU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
