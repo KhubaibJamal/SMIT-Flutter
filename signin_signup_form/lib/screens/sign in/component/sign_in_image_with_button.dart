@@ -3,7 +3,10 @@ import 'package:signin_signup_form/screens/sign%20up/sign_up_screen.dart';
 
 import '../../../component/default_button.dart';
 import '../../../const.dart';
+import '../../../helper/helper.dart';
+import '../../../services/auth_services.dart';
 import '../../../size_config.dart';
+import '../../home/home_screen.dart';
 
 class SignInImageWithButton extends StatelessWidget {
   const SignInImageWithButton({super.key});
@@ -31,7 +34,12 @@ class SignInImageWithButton extends StatelessWidget {
                   child: DefaultButton(
                     text: "Login Account",
                     borderRadius: 30,
-                    press: () {},
+                    press: () async {
+                      final email = await Helper.getUserEmail();
+                      final password = await Helper.getUserPassword();
+                      AuthServices.signIn(email!, password!);
+                      Navigator.pushNamed(context, HomeScreen.routeName);
+                    },
                   ),
                 ),
                 SizedBox(height: getProportionateScreenWidth(10)),

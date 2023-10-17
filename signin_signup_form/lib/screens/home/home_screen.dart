@@ -12,13 +12,13 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final user = FirebaseAuth.instance.currentUser;
+    User? user = FirebaseAuth.instance.currentUser;
     return Scaffold(
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("Welcome\n${user?.email}", style: defaultTextStyle),
+            Text("Welcome\n${user!.email}", style: defaultTextStyle),
             SizedBox(height: getProportionateScreenWidth(10)),
             SizedBox(
               width: SizeConfig.screenWidth! / 2,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../const.dart';
+import '../../../helper/helper.dart';
 import '../../../size_config.dart';
 
 class SignInform extends StatefulWidget {
@@ -12,6 +13,21 @@ class SignInform extends StatefulWidget {
 
 class _SignInformState extends State<SignInform> {
   final _formKey = GlobalKey<FormState>();
+
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
+  void setUserEmailAndPassword() {
+    Helper.setUserEmail(emailController.text);
+    Helper.setUserPassword(passwordController.text);
+  }
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +43,7 @@ class _SignInformState extends State<SignInform> {
             Text('Email', style: defaultTextStyle),
             const SizedBox(height: 5),
             TextFormField(
+              controller: emailController,
               decoration: inputDecoration(hintText: "Enter your Email"),
             ),
 
@@ -35,6 +52,12 @@ class _SignInformState extends State<SignInform> {
             Text('Password', style: defaultTextStyle),
             const SizedBox(height: 5),
             TextFormField(
+              controller: passwordController,
+              onEditingComplete: () {
+                // un-focus on screen keyboard
+                FocusManager.instance.primaryFocus?.unfocus();
+                setUserEmailAndPassword();
+              },
               decoration: inputDecoration(hintText: "Enter your Password"),
             ),
 
