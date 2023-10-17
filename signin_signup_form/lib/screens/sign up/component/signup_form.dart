@@ -15,17 +15,18 @@ class _SignUpFormState extends State<SignUpForm> {
 
   bool isChecked = false;
 
-  TextEditingController emailController =
-      TextEditingController(text: "khubaib@gmail.com");
+  TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+
+  void setUserEmailAndPassword() {
+    Helper.setUserEmail(emailController.text);
+    Helper.setUserPassword(passwordController.text);
+  }
 
   @override
   void dispose() {
-    Helper.setUserEmail(emailController.text);
-    Helper.setUserPassword(passwordController.text);
     emailController.dispose();
     passwordController.dispose();
-    print("object");
     super.dispose();
   }
 
@@ -59,6 +60,11 @@ class _SignUpFormState extends State<SignUpForm> {
             // confirm password
             SizedBox(height: getProportionateScreenHeight(18)),
             TextFormField(
+              onEditingComplete: () {
+                // un-focus on screen keyboard
+                FocusManager.instance.primaryFocus?.unfocus();
+                setUserEmailAndPassword();
+              },
               decoration: inputDecoration(hintText: "Re-Enter your Password "),
             ),
 

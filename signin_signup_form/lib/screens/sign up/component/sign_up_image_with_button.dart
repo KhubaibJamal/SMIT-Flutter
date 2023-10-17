@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:signin_signup_form/helper/helper.dart';
+import 'package:signin_signup_form/screens/home/home_screen.dart';
+import 'package:signin_signup_form/services/auth_services.dart';
 
 import '../../../component/default_button.dart';
 import '../../../const.dart';
@@ -34,15 +36,9 @@ class SignUpImageWithButton extends StatelessWidget {
                   text: "Create Account",
                   press: () async {
                     final email = await Helper.getUserEmail();
-                    print(email);
-
-                    // final String? name = await Helper.getName();
-                    // print("name:$name");
-                    // SharedPreferences sp =
-                    //     await SharedPreferences.getInstance();
-                    // sp.setString('name', 'Khubaib');
-                    // final nname = sp.getString('name');
-                    // print("NAME:$nname");
+                    final password = await Helper.getUserPassword();
+                    AuthServices.signUp(email!, password!);
+                    Navigator.pushNamed(context, HomeScreen.routeName);
                   },
                   borderRadius: 30,
                 ),

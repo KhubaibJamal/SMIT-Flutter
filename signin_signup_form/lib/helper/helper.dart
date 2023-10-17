@@ -16,8 +16,7 @@ class Helper {
   // get user email
   static Future<String?> getUserEmail() async {
     SharedPreferences sp = await SharedPreferences.getInstance();
-    String? email = sp.getString('email');
-    return email;
+    return sp.getString('email');
   }
 
   // get user email
@@ -26,19 +25,9 @@ class Helper {
     return sp.getString('password');
   }
 
-  // static Future<String?> getUserEmail() async {
-  //   SharedPreferences sp = await SharedPreferences.getInstance();
-  //   String? email = sp.getString('email');
-  //   return email;
-  // }
-  // static Future setName() async {
-  //   SharedPreferences sp = await SharedPreferences.getInstance();
-  //   sp.setString('name', 'Khubaib');
-  // }
-
-  // static Future<String?> getName() async {
-  //   SharedPreferences sp = await SharedPreferences.getInstance();
-  //   String? name = sp.getString('name');
-  //   return name;
-  // }
+  // remove current user
+  static Future removeUser() async {
+    SharedPreferences sp = await SharedPreferences.getInstance();
+    return sp.clear();
+  }
 }
