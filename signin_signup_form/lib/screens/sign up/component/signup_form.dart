@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:signin_signup_form/const.dart';
+import 'package:signin_signup_form/helper/helper.dart';
 import 'package:signin_signup_form/size_config.dart';
 
 class SignUpForm extends StatefulWidget {
@@ -13,6 +14,21 @@ class _SignUpFormState extends State<SignUpForm> {
   final _formKey = GlobalKey<FormState>();
 
   bool isChecked = false;
+
+  TextEditingController emailController =
+      TextEditingController(text: "khubaib@gmail.com");
+  TextEditingController passwordController = TextEditingController();
+
+  @override
+  void dispose() {
+    Helper.setUserEmail(emailController.text);
+    Helper.setUserPassword(passwordController.text);
+    emailController.dispose();
+    passwordController.dispose();
+    print("object");
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -29,12 +45,14 @@ class _SignUpFormState extends State<SignUpForm> {
             // user email
             SizedBox(height: getProportionateScreenHeight(18)),
             TextFormField(
+              controller: emailController,
               decoration: inputDecoration(hintText: "Enter your Email"),
             ),
 
             // user password
             SizedBox(height: getProportionateScreenHeight(18)),
             TextFormField(
+              controller: passwordController,
               decoration: inputDecoration(hintText: "Enter your Password"),
             ),
 
