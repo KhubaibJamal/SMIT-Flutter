@@ -1,3 +1,4 @@
+import 'package:api/screens/detail/detail_screen.dart';
 import 'package:api/services/user_services.dart';
 import 'package:api/size_config.dart';
 import 'package:flutter/material.dart';
@@ -20,6 +21,14 @@ class Body extends StatelessWidget {
               itemCount: snapshot.data!.length,
               itemBuilder: (context, index) {
                 return ListTile(
+                  onTap: () {
+                    Navigator.pushNamed(
+                      context,
+                      DetailScreen.routeName,
+                      arguments: UserDetailsArguments(
+                          userModel: snapshot.data![index]),
+                    );
+                  },
                   leading: CircleAvatar(
                     child: Text(
                       "${snapshot.data![index].id}",
