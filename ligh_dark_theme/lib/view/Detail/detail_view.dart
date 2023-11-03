@@ -1,29 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:ligh_dark_theme/size_config.dart';
 
 import '../../constant.dart';
 import 'Component/Bottom_animation.dart';
-import 'Component/card_info.dart';
+import 'Component/product_description.dart';
 import 'Component/detail_header.dart';
 import 'Component/row_widget_text.dart';
 
-class DetailView extends StatefulWidget {
+class DetailView extends StatelessWidget {
   final image, text;
   const DetailView({super.key, required this.image, required this.text});
 
   @override
-  State<DetailView> createState() => _DetailViewState();
-}
-
-class _DetailViewState extends State<DetailView> {
-  @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
     return Scaffold(
       body: SafeArea(
         child: Container(
-          height: height,
-          width: width,
+          height: SizeConfig.screenHeight!,
+          width: SizeConfig.screenWidth!,
           decoration: BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topLeft,
@@ -32,71 +26,68 @@ class _DetailViewState extends State<DetailView> {
             ),
           ),
           child: Padding(
-            padding: EdgeInsets.all(defaultPadding / 2),
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  DetailHeader(widget: widget),
-                  const RowWidgetText(),
-                  SizedBox(height: defaultPadding),
-                  CardInfoWidget(title: widget.text),
-                  SizedBox(height: defaultPadding + 10),
-                  const Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      BottomAnimation(
-                        title: "CAL",
-                        startAngle: 150,
-                        valueNotifier: 300,
-                      ),
-                      BottomAnimation(
-                        title: "FAT",
-                        startAngle: 260,
-                        valueNotifier: 140,
-                      ),
-                      BottomAnimation(
-                        title: "CAR",
-                        startAngle: 120,
-                        valueNotifier: 340,
-                      ),
-                    ],
+            padding: EdgeInsets.all(getProportionateScreenWidth(10)),
+            child: Column(
+              children: [
+                // detail screen image and arrow back icon
+                DetailHeader(
+                  image: image,
+                ),
+                const RowWidgetText(),
+
+                // product description
+                SizedBox(height: getProportionateScreenWidth(18)),
+                ProductDescription(title: text),
+
+                // animated circular progress bar
+                SizedBox(height: getProportionateScreenWidth(30)),
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    BottomAnimation(
+                      title: "CAL",
+                      startAngle: 150,
+                      valueNotifier: 300,
+                    ),
+                    BottomAnimation(
+                      title: "FAT",
+                      startAngle: 260,
+                      valueNotifier: 140,
+                    ),
+                    BottomAnimation(
+                      title: "CAR",
+                      startAngle: 120,
+                      valueNotifier: 340,
+                    ),
+                  ],
+                ),
+
+                // add to card button
+                const Spacer(),
+                Container(
+                  height: getProportionateScreenWidth(60),
+                  width: SizeConfig.screenWidth! * 0.9,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadiusDirectional.circular(15.0),
+                    gradient: LinearGradient(
+                      colors: primaryColorList,
+                      begin: Alignment.centerRight,
+                      end: Alignment.centerLeft,
+                    ),
                   ),
-                ],
-              ),
-            ),
-          ),
-        ),
-      ),
-      bottomNavigationBar: BottomAppBar(
-        height: 75,
-        color: const Color(0xff131923),
-        // color: Colors.transparent,
-        child: InkWell(
-          onTap: () {
-            print("object");
-          },
-          child: Padding(
-            padding: EdgeInsets.all(defaultPadding / 2),
-            child: Container(
-              decoration: BoxDecoration(
-                // color: Colors.red,
-                borderRadius: BorderRadiusDirectional.circular(15.0),
-                gradient: LinearGradient(
-                  colors: primaryColorList,
-                  begin: Alignment.centerRight,
-                  end: Alignment.centerLeft,
+                  child: Center(
+                    child: Text(
+                      "\$4.99/ Add to card",
+                      style:
+                          Theme.of(context).textTheme.headlineSmall!.copyWith(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                // height: 1.2,
+                              ),
+                    ),
+                  ),
                 ),
-              ),
-              child: Center(
-                child: Text(
-                  "\$4.99/ Add to card",
-                  // textAlign: TextAlign.justify,
-                  style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                        color: Colors.white, fontWeight: FontWeight.bold,
-                        // height: 1.2,
-                      ),
-                ),
-              ),
+              ],
             ),
           ),
         ),

@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 
-import '../detail_view.dart';
-
 class DetailHeader extends StatelessWidget {
   const DetailHeader({
     super.key,
-    required this.widget,
+    required this.image,
   });
 
-  final DetailView widget;
+  final String image;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +15,7 @@ class DetailHeader extends StatelessWidget {
         Hero(
           tag: "image",
           child: Image(
-            image: AssetImage("${widget.image}"),
+            image: AssetImage(image),
           ),
         ),
         InkWell(

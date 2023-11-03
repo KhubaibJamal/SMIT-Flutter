@@ -53,7 +53,6 @@ class BottomAnimation extends StatelessWidget {
               title,
               style: Theme.of(context).textTheme.titleSmall!.copyWith(
                     color: const Color(0xff59606e),
-                    // letterSpacing: 2.5,
                   ),
             ),
           ),

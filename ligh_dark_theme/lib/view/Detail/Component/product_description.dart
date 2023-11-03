@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:ligh_dark_theme/size_config.dart';
 
 import '../../../constant.dart';
 
-class CardInfoWidget extends StatelessWidget {
+class ProductDescription extends StatelessWidget {
   final String title;
-  const CardInfoWidget({super.key, required this.title});
+  const ProductDescription({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,7 @@ class CardInfoWidget extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
         ),
-        SizedBox(height: defaultPadding / 1.5),
+        SizedBox(height: getProportionateScreenWidth(15)),
         Text(
           text,
           textAlign: TextAlign.justify,
