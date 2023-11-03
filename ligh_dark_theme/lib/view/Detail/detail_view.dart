@@ -9,7 +9,11 @@ import 'Component/row_widget_text.dart';
 
 class DetailView extends StatelessWidget {
   final image, text;
-  const DetailView({super.key, required this.image, required this.text});
+  const DetailView({
+    super.key,
+    required this.image,
+    required this.text,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -82,7 +86,6 @@ class DetailView extends StatelessWidget {
                           Theme.of(context).textTheme.headlineSmall!.copyWith(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
-                                // height: 1.2,
                               ),
                     ),
                   ),
