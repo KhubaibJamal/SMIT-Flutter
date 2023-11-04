@@ -19,7 +19,6 @@ class ProductDescription extends StatelessWidget {
           textAlign: TextAlign.justify,
           maxLines: 3,
           style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                color: const Color(0xff464e5c),
                 height: 1.2,
               ),
         ),

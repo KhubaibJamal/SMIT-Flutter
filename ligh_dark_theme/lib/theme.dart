@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 
-// ThemeData theme() {
-//   return ThemeData();
-// }
-
 class CustomTheme {
   // for dark theme
   static final darkTheme = ThemeData(
-    colorScheme: const ColorScheme.dark(),
+    colorScheme: const ColorScheme.dark(
+      primary: Color(0xfffe6622),
+      secondary: Color(0xffffd411),
+    ),
     primaryColor: const Color(0xff2f3949),
     primaryColorDark: const Color(0xfffe6622),
     primaryColorLight: const Color(0xffffd411),
@@ -16,13 +15,15 @@ class CustomTheme {
     textTheme: const TextTheme(
       headlineLarge:
           TextStyle(color: Color(0xfffbfbfe), fontWeight: FontWeight.bold),
-      headlineMedium: TextStyle(color: Color(0xfffbfbfe)),
+      headlineMedium:
+          TextStyle(color: Color(0xfffbfbfe), fontWeight: FontWeight.bold),
       headlineSmall:
           TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
       titleMedium: TextStyle(color: Color(0xff59606e), letterSpacing: 2.5),
       titleSmall:
           TextStyle(color: Color(0xff59606e), fontWeight: FontWeight.bold),
-      titleLarge: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+      titleLarge:
+          TextStyle(color: Color(0xffbec1cc), fontWeight: FontWeight.bold),
     ),
     bottomAppBarTheme: const BottomAppBarTheme(color: Color(0xff131923)),
     iconTheme: const IconThemeData(color: Color(0xfffe6622)),
@@ -33,7 +34,8 @@ class CustomTheme {
 
   // for light theme
   static final lightTheme = ThemeData(
-    colorScheme: const ColorScheme.light(),
+    colorScheme: const ColorScheme.light(
+        primary: Color(0xFF3793ff), secondary: Color(0xff40ddfd)),
     primaryColor: const Color(0xffffffff),
     primaryColorDark: const Color(0xFF3793ff),
     primaryColorLight: const Color(0xff40ddfd),
@@ -43,13 +45,14 @@ class CustomTheme {
     textTheme: const TextTheme(
       headlineLarge:
           TextStyle(color: Color(0xff2d3954), fontWeight: FontWeight.bold),
-      headlineMedium: TextStyle(color: Color(0xff2d3954)),
+      headlineMedium:
+          TextStyle(color: Color(0xff2d3954), fontWeight: FontWeight.bold),
       headlineSmall:
           TextStyle(color: Color(0xff2d3954), fontWeight: FontWeight.bold),
-      titleMedium: TextStyle(color: Color(0xff59606e), letterSpacing: 2.5),
-      titleSmall: TextStyle(color: Color(0xff59606e)),
+      titleMedium: TextStyle(color: Color(0xffbec1cc), letterSpacing: 2.5),
+      titleSmall: TextStyle(color: Color(0xffbec1cc)),
       titleLarge:
-          TextStyle(color: Color(0xff2d3954), fontWeight: FontWeight.bold),
+          TextStyle(color: Color(0xffbec1cc), fontWeight: FontWeight.bold),
     ),
     bottomAppBarTheme: const BottomAppBarTheme(color: Color(0xfffbfbfe)),
     iconTheme: const IconThemeData(color: Color(0xff3995ff)),

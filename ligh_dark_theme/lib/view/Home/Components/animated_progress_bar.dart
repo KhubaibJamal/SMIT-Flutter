@@ -16,9 +16,7 @@ class AnimatedProgressBar extends StatelessWidget {
         Container(
           decoration: BoxDecoration(
             color: Theme.of(context).canvasColor,
-            borderRadius: const BorderRadius.all(
-              Radius.circular(250),
-            ),
+            shape: BoxShape.circle,
           ),
           child: Stack(
             children: [
@@ -28,14 +26,18 @@ class AnimatedProgressBar extends StatelessWidget {
                 backStrokeWidth: 4,
                 backColor: Theme.of(context).dividerColor,
                 progressColors: [
-                  Theme.of(context).primaryColorDark,
-                  Theme.of(context).primaryColorLight,
+                  Theme.of(context).colorScheme.primary,
+                  Theme.of(context).colorScheme.secondary,
                 ],
                 animationDuration: 2,
                 valueNotifier: ValueNotifier(617),
                 onGetText: (double value) {
-                  return Text('${(value).toInt()}',
-                      style: Theme.of(context).textTheme.headlineSmall);
+                  return Text(
+                    '${(value).toInt()}',
+                    style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                          fontSize: getProportionateScreenWidth(30),
+                        ),
+                  );
                 },
               ),
               // const ProgressBarIcon(),
