@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ligh_dark_theme/size_config.dart';
+import 'package:ligh_dark_theme/view/Home/Components/progress_bar_icon.dart';
 
 import 'package:simple_circular_progress_bar/simple_circular_progress_bar.dart';
 
@@ -42,11 +43,8 @@ class AnimatedProgressBar extends StatelessWidget {
                   );
                 },
               ),
-              Positioned(
-                top: 43,
-                left: 96,
-                child: Image.asset("assets/images/energy.png"),
-              ),
+              // const ProgressBarIcon(),
+              const CustomSwitch(),
               Positioned(
                 top: 150,
                 left: 75,
@@ -57,7 +55,7 @@ class AnimatedProgressBar extends StatelessWidget {
                         letterSpacing: 2.5,
                       ),
                 ),
-              )
+              ),
             ],
           ),
         ),
