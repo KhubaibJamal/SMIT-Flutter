@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ligh_dark_theme/constant.dart';
 import 'package:ligh_dark_theme/provider/theme_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -46,10 +47,10 @@ class CustomSwitch extends StatelessWidget {
         onChanged: (value) {
           themeProvider.toggleTheme(value);
         },
-        activeColor: Colors.pink,
-        activeTrackColor: Colors.yellow,
-        inactiveThumbColor: Colors.black,
-        inactiveTrackColor: Colors.amber,
+        activeColor: activeColor,
+        activeTrackColor: activeTrackColor,
+        inactiveThumbColor: inactiveThumbColor,
+        inactiveTrackColor: inactiveTrackColor,
       ),
     );
   }
