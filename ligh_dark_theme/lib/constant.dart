@@ -7,6 +7,10 @@ const activeTrackColor = unSelectedIconColor;
 const inactiveTrackColor = Color(0xffbec1cc);
 const unSelectedIconColor = Color(0xff414958);
 
+const String productDescription =
+    'A super-fresh and zingy salad packed with green veg and gnarly, sticky-sweet chicken, topped with crispy shallots. Delicious!';
+
+
 // List<Color> primaryColorList = [
 //   const Color(0xfffe6622),
 //   const Color(0xffffd411),

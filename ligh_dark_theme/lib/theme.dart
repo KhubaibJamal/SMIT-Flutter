@@ -30,6 +30,7 @@ class CustomTheme {
     cardColor: const Color(0xff2f3949),
     canvasColor: const Color(0xff212733),
     dividerColor: const Color(0xff414958),
+    primaryIconTheme: const IconThemeData(color: Color(0xffffffff)),
   );
 
   // for light theme
@@ -59,5 +60,6 @@ class CustomTheme {
     cardColor: const Color(0xfff2f4f5),
     canvasColor: const Color(0xffffffff),
     dividerColor: const Color(0xffd9dae5),
+    primaryIconTheme: const IconThemeData(color: Color(0xff2d3954)),
   );
 }
