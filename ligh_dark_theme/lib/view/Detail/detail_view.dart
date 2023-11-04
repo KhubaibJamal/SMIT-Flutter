@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ligh_dark_theme/size_config.dart';
 
-import '../../constant.dart';
 import 'Component/Bottom_animation.dart';
 import 'Component/product_description.dart';
 import 'Component/detail_header.dart';
@@ -24,12 +23,13 @@ class DetailView extends StatelessWidget {
           width: SizeConfig.screenWidth!,
           decoration: BoxDecoration(
             gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [
-                  Theme.of(context).primaryColor,
-                  Theme.of(context).secondaryHeaderColor,
-                ]),
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [
+                Theme.of(context).primaryColor,
+                Theme.of(context).secondaryHeaderColor,
+              ],
+            ),
           ),
           child: Padding(
             padding: EdgeInsets.all(getProportionateScreenWidth(10)),
@@ -74,7 +74,10 @@ class DetailView extends StatelessWidget {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadiusDirectional.circular(15.0),
                     gradient: LinearGradient(
-                      colors: primaryColorList,
+                      colors: [
+                        Theme.of(context).primaryColorDark,
+                        Theme.of(context).primaryColorLight,
+                      ],
                       begin: Alignment.centerRight,
                       end: Alignment.centerLeft,
                     ),

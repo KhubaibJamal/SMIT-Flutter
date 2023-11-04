@@ -24,7 +24,7 @@ class DetailHeader extends StatelessWidget {
           },
           child: Icon(
             Icons.navigate_before,
-            color: Theme.of(context).appBarTheme.iconTheme!.color,
+            color: Colors.amber,
             size: 45,
           ),
         ),

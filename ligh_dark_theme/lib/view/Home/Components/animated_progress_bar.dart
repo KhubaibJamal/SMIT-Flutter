@@ -4,8 +4,6 @@ import 'package:ligh_dark_theme/view/Home/Components/progress_bar_icon.dart';
 
 import 'package:simple_circular_progress_bar/simple_circular_progress_bar.dart';
 
-import '../../../constant.dart';
-
 class AnimatedProgressBar extends StatelessWidget {
   const AnimatedProgressBar({
     super.key,
@@ -16,9 +14,9 @@ class AnimatedProgressBar extends StatelessWidget {
     return Column(
       children: [
         Container(
-          decoration: const BoxDecoration(
-            color: Color(0xff212733),
-            borderRadius: BorderRadius.all(
+          decoration: BoxDecoration(
+            color: Theme.of(context).canvasColor,
+            borderRadius: const BorderRadius.all(
               Radius.circular(250),
             ),
           ),
@@ -28,8 +26,11 @@ class AnimatedProgressBar extends StatelessWidget {
                 size: 250,
                 maxValue: 1000,
                 backStrokeWidth: 4,
-                backColor: unSelectedIconColor,
-                progressColors: primaryColorList,
+                backColor: Theme.of(context).dividerColor,
+                progressColors: [
+                  Theme.of(context).primaryColorDark,
+                  Theme.of(context).primaryColorLight,
+                ],
                 animationDuration: 2,
                 valueNotifier: ValueNotifier(617),
                 onGetText: (double value) {

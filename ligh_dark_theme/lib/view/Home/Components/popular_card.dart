@@ -13,9 +13,7 @@ class PopularCard extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Divider(
-          color: Color(0xff313a48),
-        ),
+        Divider(color: Theme.of(context).dividerColor),
         SizedBox(height: getProportionateScreenWidth(15)),
         Text("Popular", style: Theme.of(context).textTheme.headlineMedium),
         SizedBox(height: getProportionateScreenWidth(18)),
@@ -53,15 +51,8 @@ class CardData extends StatelessWidget {
         height: SizeConfig.screenHeight! * 0.25,
         width: SizeConfig.screenWidth!,
         decoration: BoxDecoration(
+          color: Theme.of(context).cardColor,
           borderRadius: BorderRadius.circular(25),
-          gradient: LinearGradient(
-            colors: [
-              Theme.of(context).primaryColor,
-              Theme.of(context).secondaryHeaderColor,
-            ],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-          ),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

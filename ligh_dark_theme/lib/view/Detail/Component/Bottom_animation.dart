@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:simple_circular_progress_bar/simple_circular_progress_bar.dart';
 
-import '../../../constant.dart';
-
 class BottomAnimation extends StatelessWidget {
   const BottomAnimation({
     super.key,
@@ -17,9 +15,9 @@ class BottomAnimation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
-        color: Color(0xff212733),
-        borderRadius: BorderRadius.all(
+      decoration: BoxDecoration(
+        color: Theme.of(context).canvasColor,
+        borderRadius: const BorderRadius.all(
           Radius.circular(250),
         ),
       ),
@@ -31,8 +29,11 @@ class BottomAnimation extends StatelessWidget {
             startAngle: startAngle,
             progressStrokeWidth: 6,
             backStrokeWidth: 4,
-            backColor: unSelectedIconColor,
-            progressColors: primaryColorList,
+            backColor: Theme.of(context).dividerColor,
+            progressColors: [
+              Theme.of(context).primaryColorDark,
+              Theme.of(context).primaryColorLight,
+            ],
             animationDuration: 2,
             valueNotifier: ValueNotifier(valueNotifier),
             onGetText: (double value) {
