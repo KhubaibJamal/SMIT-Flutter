@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ligh_dark_theme/size_config.dart';
 
-import '../../constant.dart';
 import 'Components/animated_progress_bar.dart';
 import 'Components/header_text.dart';
 import 'Components/popular_card.dart';
@@ -21,7 +20,10 @@ class HomeView extends StatelessWidget {
             gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
-              colors: bgColorList,
+              colors: [
+                Theme.of(context).primaryColor,
+                Theme.of(context).secondaryHeaderColor,
+              ],
             ),
           ),
           child: Padding(

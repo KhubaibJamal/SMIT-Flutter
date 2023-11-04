@@ -22,9 +22,9 @@ class DetailHeader extends StatelessWidget {
           onTap: () {
             Navigator.pop(context);
           },
-          child: const Icon(
+          child: Icon(
             Icons.navigate_before,
-            color: Colors.white,
+            color: Theme.of(context).appBarTheme.iconTheme!.color,
             size: 45,
           ),
         ),

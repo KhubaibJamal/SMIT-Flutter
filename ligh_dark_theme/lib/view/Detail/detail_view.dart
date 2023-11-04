@@ -24,19 +24,19 @@ class DetailView extends StatelessWidget {
           width: SizeConfig.screenWidth!,
           decoration: BoxDecoration(
             gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: bgColorList,
-            ),
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [
+                  Theme.of(context).primaryColor,
+                  Theme.of(context).secondaryHeaderColor,
+                ]),
           ),
           child: Padding(
             padding: EdgeInsets.all(getProportionateScreenWidth(10)),
             child: Column(
               children: [
                 // detail screen image and arrow back icon
-                DetailHeader(
-                  image: image,
-                ),
+                DetailHeader(image: image),
                 const RowWidgetText(),
 
                 // product description

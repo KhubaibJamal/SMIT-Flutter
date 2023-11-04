@@ -29,7 +29,7 @@ class _BottomNavigationAppBarState extends State<BottomNavigationAppBar> {
       ),
       bottomNavigationBar: BottomAppBar(
         height: 60,
-        color: const Color(0xff131923),
+        color: Theme.of(context).bottomAppBarTheme.color,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
@@ -42,8 +42,9 @@ class _BottomNavigationAppBarState extends State<BottomNavigationAppBar> {
               },
               child: Icon(
                 Icons.home_filled,
-                color:
-                    currentTab == 0 ? selectedIconColor : unSelectedIconColor,
+                color: currentTab == 0
+                    ? Theme.of(context).iconTheme.color
+                    : unSelectedIconColor,
                 size: 30,
               ),
             ),
@@ -56,8 +57,9 @@ class _BottomNavigationAppBarState extends State<BottomNavigationAppBar> {
               },
               child: Icon(
                 Icons.widgets,
-                color:
-                    currentTab == 1 ? selectedIconColor : unSelectedIconColor,
+                color: currentTab == 1
+                    ? Theme.of(context).iconTheme.color
+                    : unSelectedIconColor,
                 size: 30,
               ),
             ),
@@ -70,8 +72,9 @@ class _BottomNavigationAppBarState extends State<BottomNavigationAppBar> {
               },
               child: Icon(
                 Icons.bolt,
-                color:
-                    currentTab == 2 ? selectedIconColor : unSelectedIconColor,
+                color: currentTab == 2
+                    ? Theme.of(context).iconTheme.color
+                    : unSelectedIconColor,
                 size: 30,
               ),
             ),
@@ -84,8 +87,9 @@ class _BottomNavigationAppBarState extends State<BottomNavigationAppBar> {
               },
               child: Icon(
                 Icons.shopping_bag,
-                color:
-                    currentTab == 3 ? selectedIconColor : unSelectedIconColor,
+                color: currentTab == 3
+                    ? Theme.of(context).iconTheme.color
+                    : unSelectedIconColor,
                 size: 30,
               ),
             ),

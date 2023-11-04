@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ligh_dark_theme/size_config.dart';
 
-import '../../../constant.dart';
-
 class ProductDescription extends StatelessWidget {
   final String title;
   const ProductDescription({super.key, required this.title});
@@ -14,13 +12,7 @@ class ProductDescription extends StatelessWidget {
 
     return Column(
       children: [
-        Text(
-          title,
-          style: Theme.of(context).textTheme.headlineLarge!.copyWith(
-                color: textColor,
-                fontWeight: FontWeight.bold,
-              ),
-        ),
+        Text(title, style: Theme.of(context).textTheme.headlineLarge),
         SizedBox(height: getProportionateScreenWidth(15)),
         Text(
           text,

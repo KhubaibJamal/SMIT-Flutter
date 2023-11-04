@@ -36,25 +36,14 @@ class BottomAnimation extends StatelessWidget {
             animationDuration: 2,
             valueNotifier: ValueNotifier(valueNotifier),
             onGetText: (double value) {
-              return Text(
-                '${(value).toInt()}',
-                style: const TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
-              );
+              return Text('${(value).toInt()}',
+                  style: Theme.of(context).textTheme.headlineSmall);
             },
           ),
           Positioned(
             top: 15,
             left: 32,
-            child: Text(
-              title,
-              style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                    color: const Color(0xff59606e),
-                  ),
-            ),
+            child: Text(title, style: Theme.of(context).textTheme.titleSmall),
           ),
         ],
       ),

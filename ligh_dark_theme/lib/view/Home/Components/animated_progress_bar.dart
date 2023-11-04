@@ -33,14 +33,8 @@ class AnimatedProgressBar extends StatelessWidget {
                 animationDuration: 2,
                 valueNotifier: ValueNotifier(617),
                 onGetText: (double value) {
-                  return Text(
-                    '${(value).toInt()}',
-                    style: const TextStyle(
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                  );
+                  return Text('${(value).toInt()}',
+                      style: Theme.of(context).textTheme.headlineSmall);
                 },
               ),
               // const ProgressBarIcon(),
@@ -48,13 +42,8 @@ class AnimatedProgressBar extends StatelessWidget {
               Positioned(
                 top: 150,
                 left: 75,
-                child: Text(
-                  "REMAINING",
-                  style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                        color: const Color(0xff59606e),
-                        letterSpacing: 2.5,
-                      ),
-                ),
+                child: Text("REMAINING",
+                    style: Theme.of(context).textTheme.titleMedium),
               ),
             ],
           ),
@@ -95,20 +84,9 @@ class TextWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text(
-          title,
-          style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-              ),
-        ),
+        Text(title, style: Theme.of(context).textTheme.headlineSmall),
         SizedBox(height: getProportionateScreenWidth(10)),
-        Text(
-          subTitle,
-          style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                color: const Color(0xff59606e),
-              ),
-        ),
+        Text(subTitle, style: Theme.of(context).textTheme.titleSmall),
       ],
     );
   }

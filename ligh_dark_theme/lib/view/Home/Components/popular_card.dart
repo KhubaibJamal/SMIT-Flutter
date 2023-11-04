@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ligh_dark_theme/size_config.dart';
 
-import '../../../constant.dart';
 import '../../Detail/detail_view.dart';
 
 class PopularCard extends StatelessWidget {
@@ -18,12 +17,7 @@ class PopularCard extends StatelessWidget {
           color: Color(0xff313a48),
         ),
         SizedBox(height: getProportionateScreenWidth(15)),
-        Text(
-          "Popular",
-          style: Theme.of(context).textTheme.headlineMedium!.copyWith(
-                color: Colors.white,
-              ),
-        ),
+        Text("Popular", style: Theme.of(context).textTheme.headlineMedium),
         SizedBox(height: getProportionateScreenWidth(18)),
         const CardData(
           image: "assets/images/chicken.png",
@@ -61,7 +55,10 @@ class CardData extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(25),
           gradient: LinearGradient(
-            colors: bgColorList,
+            colors: [
+              Theme.of(context).primaryColor,
+              Theme.of(context).secondaryHeaderColor,
+            ],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),
@@ -77,13 +74,7 @@ class CardData extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
-            Text(
-              text,
-              style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
-            ),
+            Text(text, style: Theme.of(context).textTheme.titleLarge),
             const SizedBox(height: 5),
           ],
         ),
