@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ligh_dark_theme/size_config.dart';
-import 'package:ligh_dark_theme/view/Home/Components/progress_bar_icon.dart';
-
+import 'package:ligh_dark_theme/view/Home/Components/energy_icon.dart';
 import 'package:simple_circular_progress_bar/simple_circular_progress_bar.dart';
 
 class AnimatedProgressBar extends StatelessWidget {
@@ -26,8 +25,8 @@ class AnimatedProgressBar extends StatelessWidget {
                 backStrokeWidth: 4,
                 backColor: Theme.of(context).dividerColor,
                 progressColors: [
-                  Theme.of(context).colorScheme.primary,
-                  Theme.of(context).colorScheme.secondary,
+                  Theme.of(context).primaryColorDark,
+                  Theme.of(context).primaryColorLight,
                 ],
                 animationDuration: 2,
                 valueNotifier: ValueNotifier(617),
@@ -40,8 +39,7 @@ class AnimatedProgressBar extends StatelessWidget {
                   );
                 },
               ),
-              // const ProgressBarIcon(),
-              const CustomSwitch(),
+              const EnergyIcon(),
               Positioned(
                 top: 150,
                 left: 75,

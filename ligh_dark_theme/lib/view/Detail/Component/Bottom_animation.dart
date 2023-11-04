@@ -31,8 +31,8 @@ class BottomAnimation extends StatelessWidget {
             backStrokeWidth: 4,
             backColor: Theme.of(context).dividerColor,
             progressColors: [
-              Theme.of(context).colorScheme.primary,
-              Theme.of(context).colorScheme.secondary,
+              Theme.of(context).primaryColorDark,
+              Theme.of(context).primaryColorLight,
             ],
             animationDuration: 2,
             valueNotifier: ValueNotifier(valueNotifier),
