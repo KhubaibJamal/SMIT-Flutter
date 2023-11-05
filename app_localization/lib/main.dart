@@ -1,3 +1,4 @@
+import 'package:app_localization/helper/helper.dart';
 import 'package:app_localization/provider/language_provider.dart';
 import 'package:app_localization/view/home_view.dart';
 import 'package:flutter/material.dart';
@@ -5,12 +6,17 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  final String languageCode = await Helper.getLanguageCode() ?? " ";
+
+  runApp(MyApp(locale: languageCode));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final String locale;
+  const MyApp({super.key, required this.locale});
 
   @override
   Widget build(BuildContext context) {
@@ -20,10 +26,21 @@ class MyApp extends StatelessWidget {
       ],
       child: Consumer<LanguageChangeProvider>(
         builder: (context, provider, child) {
+          if (provider.appLocale == null) {
+            if (locale.isEmpty) {
+              provider.changeLanguage(const Locale('en'));
+            } else {
+              provider.changeLanguage(Locale(locale));
+            }
+          }
           return MaterialApp(
             debugShowCheckedModeBanner: false,
             title: 'Flutter Demo',
-            locale: provider.appLocale,
+            locale: locale == ''
+                ? const Locale('en')
+                : provider.appLocale == null
+                    ? Locale(locale)
+                    : Provider.of<LanguageChangeProvider>(context).appLocale,
             localizationsDelegates: const [
               AppLocalizations.delegate,
               GlobalMaterialLocalizations.delegate,
