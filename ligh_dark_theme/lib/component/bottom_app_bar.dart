@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ligh_dark_theme/component/webview_screen.dart';
 
 import '../constant.dart';
 import 'theme_change_screen.dart';
@@ -15,6 +16,7 @@ class _BottomNavigationAppBarState extends State<BottomNavigationAppBar> {
   int currentTab = 0;
   final List screens = [
     const HomeView(),
+    const WebViewScreen(),
     const ThemeChangeScreen(),
   ];
 
@@ -51,7 +53,7 @@ class _BottomNavigationAppBarState extends State<BottomNavigationAppBar> {
             MaterialButton(
               onPressed: () {
                 setState(() {
-                  // currentScreen = const ThemeChangeScreen();
+                  currentScreen = const WebViewScreen();
                   currentTab = 1;
                 });
               },
