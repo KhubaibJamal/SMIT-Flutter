@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../constant.dart';
-import 'widget_screen.dart';
+import 'theme_change_screen.dart';
 import '../view/Home/home_view.dart';
 
 class BottomNavigationAppBar extends StatefulWidget {
@@ -15,7 +15,7 @@ class _BottomNavigationAppBarState extends State<BottomNavigationAppBar> {
   int currentTab = 0;
   final List screens = [
     const HomeView(),
-    const WidgetScreen(),
+    const ThemeChangeScreen(),
   ];
 
   final PageStorageBucket bucket = PageStorageBucket();
@@ -51,7 +51,7 @@ class _BottomNavigationAppBarState extends State<BottomNavigationAppBar> {
             MaterialButton(
               onPressed: () {
                 setState(() {
-                  // currentScreen = const WidgetScreen();
+                  // currentScreen = const ThemeChangeScreen();
                   currentTab = 1;
                 });
               },
@@ -66,7 +66,7 @@ class _BottomNavigationAppBarState extends State<BottomNavigationAppBar> {
             MaterialButton(
               onPressed: () {
                 setState(() {
-                  // currentScreen = const WidgetScreen();
+                  // currentScreen = const ThemeChangeScreen();
                   currentTab = 2;
                 });
               },
@@ -81,7 +81,7 @@ class _BottomNavigationAppBarState extends State<BottomNavigationAppBar> {
             MaterialButton(
               onPressed: () {
                 setState(() {
-                  currentScreen = const WidgetScreen();
+                  currentScreen = const ThemeChangeScreen();
                   currentTab = 3;
                 });
               },
