@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notification/services/notification_services.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -8,8 +9,28 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
+  NotificationServices services = NotificationServices();
+
+  @override
+  void initState() {
+    services.requestPermissionNotification();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text("Notification"),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
