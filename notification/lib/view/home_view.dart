@@ -14,6 +14,9 @@ class _HomeViewState extends State<HomeView> {
   @override
   void initState() {
     services.requestPermissionNotification();
+    services.getDeviceToken().then((value) {
+      print("Value: $value");
+    });
     super.initState();
   }
 
