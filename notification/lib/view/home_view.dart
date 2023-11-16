@@ -14,6 +14,8 @@ class _HomeViewState extends State<HomeView> {
   @override
   void initState() {
     services.requestPermissionNotification();
+    services.firebaseInit();
+    services.isTokenRefresh();
     services.getDeviceToken().then((value) {
       print("Value: $value");
     });
